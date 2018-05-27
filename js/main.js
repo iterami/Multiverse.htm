@@ -15,7 +15,7 @@ function repo_init(){
         },
         'load_level': {
           'onclick': function(){
-              if(!('camera-type' in webgl_character)){
+              if(webgl_character_type() < 0){
                   return;
               }
 
@@ -26,7 +26,7 @@ function repo_init(){
         },
         'load_prebuilt': {
           'onclick': function(){
-              if(!('camera-type' in webgl_character)){
+              if(webgl_character_type() < 0){
                   return;
               }
 
