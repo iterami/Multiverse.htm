@@ -8,10 +8,17 @@ function repo_init(){
       'events': {
         'load_character': {
           'onclick': function(){
+              webgl_load_level({
+                'json': document.getElementById('level_character').files[0] || false,
+              });
           },
         },
         'load_level': {
           'onclick': function(){
+              if(!('camera-type' in webgl_character)){
+                  return;
+              }
+
               webgl_load_level({
                 'json': document.getElementById('level_json').files[0] || false,
               });
@@ -19,6 +26,10 @@ function repo_init(){
         },
         'load_prebuilt': {
           'onclick': function(){
+              if(!('camera-type' in webgl_character)){
+                  return;
+              }
+
               ajax_level(document.getElementById('level_select').value);
           },
         },
