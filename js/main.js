@@ -1,6 +1,12 @@
 'use strict';
 
 function logic(){
+    core_ui_update({
+      'ids': {
+        'experience': webgl_character['experience'],
+        'level': webgl_character['level'],
+      },
+    });
 }
 
 function repo_init(){
@@ -52,6 +58,7 @@ function repo_init(){
         },
       },
       'title': 'Multiverse.htm',
+      'ui': 'Level: <span id=ui-level></span> (<span id=ui-experience></span>)',
     });
 
     // Populate prebuilt level select if multiverselevels defined.
