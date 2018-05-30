@@ -9,6 +9,7 @@ function repo_init(){
         'load_character': {
           'onclick': function(){
               webgl_load_level({
+                'character': 1,
                 'json': document.getElementById('character_json').files[0] || false,
               });
           },
