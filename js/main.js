@@ -14,10 +14,13 @@ function repo_init(){
       'events': {
         'load_character': {
           'onclick': function(){
-              webgl_load_level({
-                'character': 1,
-                'json': document.getElementById('character_json').files[0] || false,
-              });
+              if(webgl_character_type() < 0
+                || window.confirm('Load new character?')){
+                  webgl_load_level({
+                    'character': 1,
+                    'json': document.getElementById('character_json').files[0] || false,
+                  });
+              }
           },
         },
         'load_level': {
