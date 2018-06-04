@@ -25,21 +25,14 @@ function repo_init(){
         },
         'load_level': {
           'onclick': function(){
-              if(webgl_character_type() < 0){
-                  return;
-              }
-
               webgl_load_level({
+                'character': 0,
                 'json': document.getElementById('level_json').files[0] || false,
               });
           },
         },
         'load_prebuilt': {
           'onclick': function(){
-              if(webgl_character_type() < 0){
-                  return;
-              }
-
               ajax_level(document.getElementById('level_select').value);
           },
         },
