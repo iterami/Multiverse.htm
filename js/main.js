@@ -14,7 +14,7 @@ function repo_init(){
       'events': {
         'load_character': {
           'onclick': function(){
-              if(webgl_character_type() < 0
+              if(webgl_character_level() < 0
                 || window.confirm('Load new character?')){
                   webgl_load_level({
                     'character': 1,
