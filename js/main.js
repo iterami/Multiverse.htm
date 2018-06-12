@@ -50,7 +50,7 @@ function repo_init(){
           'todo': core_requestpointerlock,
         },
         'mousemove': {
-          'todo': webgl_camera_first,
+          'todo': webgl_camera_handle,
         },
       },
       'title': 'Multiverse.htm',
