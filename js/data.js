@@ -3,7 +3,7 @@
 function ajax_level(level){
     core_ajax({
       'todo': load_prebuilt_level,
-      'url': '../common/multiverse/' + level + '.json',
+      'url': '../MultiverseLevels.htm/json/' + level + '.json',
     });
 }
 
