@@ -11,6 +11,13 @@ function logic(){
 
 function repo_init(){
     core_repo_init({
+      'beforeunload': {
+        'todo': function(){
+            if(webgl_character_level() > -2){
+                return 'Exit?';
+            }
+        },
+      },
       'events': {
         'load_character': {
           'onclick': function(){
