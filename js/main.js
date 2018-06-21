@@ -46,6 +46,9 @@ function repo_init(){
       },
       'menu': true,
       'mousebinds': {
+        'contextmenu': {
+          'preventDefault': true,
+        },
         'mousemove': {
           'preventDefault': true,
           'todo': webgl_camera_handle,
