@@ -13,7 +13,8 @@ function repo_init(){
     core_repo_init({
       'beforeunload': {
         'todo': function(){
-            if(webgl_character_level() > -2){
+            if(webgl_character_level() > -2
+              && core_storage_data['beforeunload-warning']){
                 return 'Exit?';
             }
         },
@@ -64,6 +65,10 @@ function repo_init(){
           'todo': webgl_camera_zoom,
         },
       },
+      'storage': {
+        'beforeunload-warning': true,
+      },
+      'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning</table>',
       'title': 'Multiverse.htm',
       'ui': 'Level: <span id=ui-level></span> (<span id=ui-experience></span>)',
     });
