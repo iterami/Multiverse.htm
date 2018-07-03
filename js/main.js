@@ -4,6 +4,8 @@ function logic(){
     core_ui_update({
       'ids': {
         'experience': webgl_character['experience'],
+        'health-current': webgl_character['health-current'],
+        'health-max': webgl_character['health-max'],
         'level': webgl_character['level'],
       },
     });
@@ -70,7 +72,8 @@ function repo_init(){
       },
       'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning</table>',
       'title': 'Multiverse.htm',
-      'ui': 'Level: <span id=ui-level></span> (<span id=ui-experience></span>)',
+      'ui': 'Health: <span id=ui-health-current></span>/<span id=ui-health-max></span><br>'
+        + 'Level: <span id=ui-level></span> (<span id=ui-experience></span>)',
     });
 
     // Populate prebuilt level select if multiverselevels defined.
