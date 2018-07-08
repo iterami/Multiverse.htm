@@ -78,8 +78,8 @@ function repo_init(){
 
     // Populate prebuilt level select if multiverselevels defined.
     if('multiverselevels' in window){
-        var level_select = '';
-        for(var level in multiverselevels){
+        let level_select = '';
+        for(let level in multiverselevels){
             level_select += '<option value="' + level + '">' + multiverselevels[level] + '</option>';
         }
         document.getElementById('level_select').innerHTML = level_select;
