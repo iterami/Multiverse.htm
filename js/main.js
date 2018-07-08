@@ -47,7 +47,8 @@ function repo_init(){
           },
         },
       },
-      'info': '<table><tr><td><input id=character_json type=file><td><input id=load_character type=button value="Load Character From File">'
+      'info': 'Level: <span id=ui-level></span> (<span id=ui-experience></span>)'
+        + '<hr><table><tr><td><input id=character_json type=file><td><input id=load_character type=button value="Load Character From File">'
         + '<tr><td><input id=level_json type=file><td><input id=load_level type=button value="Load Level From File">'
         + '<tr><td><select id=level_select></select><td><input id=load_prebuilt type=button value="Load Prebuilt Level"></table>',
       'keybinds': {
@@ -72,8 +73,7 @@ function repo_init(){
       },
       'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning</table>',
       'title': 'Multiverse.htm',
-      'ui': 'Health: <span id=ui-health-current></span>/<span id=ui-health-max></span><br>'
-        + 'Level: <span id=ui-level></span> (<span id=ui-experience></span>)',
+      'ui': 'Health: <span id=ui-health-current></span>/<span id=ui-health-max></span><br>',
     });
 
     // Populate prebuilt level select if multiverselevels defined.
