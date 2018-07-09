@@ -1,11 +1,17 @@
 'use strict';
 
 function logic(){
+    let inventory = '';
+    for(let item in webgl_character['inventory']){
+        inventory += '<li>' + item + ': ' + webgl_character['inventory'][item];
+    }
+
     core_ui_update({
       'ids': {
         'experience': webgl_character['experience'],
         'health-current': webgl_character['health-current'],
         'health-max': webgl_character['health-max'],
+        'inventory': inventory,
         'jump-height': webgl_character['jump-height'],
         'level': webgl_character['level'],
         'speed': webgl_character['speed'],
@@ -50,7 +56,7 @@ function repo_init(){
         },
       },
       'info': '<table><tr><td>Level: <span id=ui-level></span> (<span id=ui-experience></span>)'
-        + '<td rowspan=2>Inventory:'
+        + '<td rowspan=2>Inventory: <ul id=ui-inventory></ul>'
         + '<tr><td>Jump Height: <span id=ui-jump-height></span><br>'
         + 'Speed: <span id=ui-speed></span></table>'
         + '<hr><table><tr><td><input id=character_json type=file><td><input id=load_character type=button value="Load Character From File">'
