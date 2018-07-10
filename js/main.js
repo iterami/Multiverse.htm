@@ -95,4 +95,12 @@ function repo_init(){
         }
         document.getElementById('level_select').innerHTML = level_select;
     }
+
+    // Create character export tab.
+    core_tab_create({
+      'content': '<input id=update_json type=button value="Update Character JSON"><br><textarea></textarea>',
+      'group': 'core-menu',
+      'id': 'export',
+      'label': 'Export Character',
+    });
 }
