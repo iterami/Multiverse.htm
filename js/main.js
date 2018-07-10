@@ -98,9 +98,35 @@ function repo_init(){
 
     // Create character export tab.
     core_tab_create({
-      'content': '<input id=update_json type=button value="Update Character JSON"><br><textarea></textarea>',
+      'content': '<input id=update_json type=button value="Update Character JSON"><br><textarea id=exported></textarea>',
       'group': 'core-menu',
       'id': 'export',
       'label': 'Export Character',
+    });
+    core_events_bind({
+      'elements': {
+        'update_json': {
+          'onclick': function(){
+              let json = {
+                'character': {},
+                'entities': [],
+              };
+
+              Object.assign(
+                json,
+                webgl_properties
+              );
+              Object.assign(
+                json,
+                webgl_character
+              );
+              for(let entity in core_entities){
+                  json['entities'].push(core_entities[entity]);
+              }
+
+              document.getElementById('exported').value = JSON.stringify(json);
+          },
+        },
+      },
     });
 }
