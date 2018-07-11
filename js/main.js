@@ -107,19 +107,18 @@ function repo_init(){
       'elements': {
         'update_json': {
           'onclick': function(){
-              let json = {
-                'character': {},
-                'entities': [],
-              };
+              let json = {};
 
               Object.assign(
                 json,
                 webgl_properties
               );
+              json['character'] = {};
               Object.assign(
-                json,
+                json['character'],
                 webgl_character
               );
+              json['entities'] = [];
               for(let entity in core_entities){
                   json['entities'].push(core_entities[entity]);
               }
