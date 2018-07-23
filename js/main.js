@@ -1,11 +1,19 @@
 'use strict';
 
 function logic(){
+    if(core_keys[core_storage_data['shoot']]['state']){
+        webgl_particles_create({
+          'gravity': false,
+          'translate-x': webgl_character['translate-x'],
+          'translate-y': webgl_character['translate-y'],
+          'translate-z': webgl_character['translate-z'],
+        });
+    }
+
     let inventory = '';
     for(let item in webgl_character['inventory']){
         inventory += '<li>' + item + ': ' + webgl_character['inventory'][item];
     }
-
     core_ui_update({
       'ids': {
         'experience': webgl_character['experience'],
@@ -65,6 +73,7 @@ function repo_init(){
       'keybinds': {
         32: {},
         67: {},
+        70: {},
       },
       'menu': true,
       'mousebinds': {
@@ -81,8 +90,9 @@ function repo_init(){
       },
       'storage': {
         'beforeunload-warning': true,
+        'shoot': 70,
       },
-      'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning</table>',
+      'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning<tr><td><input id=shoot><td>Shoot</table>',
       'title': 'Multiverse.htm',
       'ui': 'Health: <span id=ui-health-current></span>/<span id=ui-health-max></span><br>',
     });
