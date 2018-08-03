@@ -1,13 +1,15 @@
 'use strict';
 
 function logic(){
-    if(core_keys[core_storage_data['shoot']]['state']){
-        webgl_particles_create({
-          'gravity': false,
-          'translate-x': webgl_characters['_me']['translate-x'],
-          'translate-y': webgl_characters['_me']['translate-y'],
-          'translate-z': webgl_characters['_me']['translate-z'],
-        });
+    if(webgl_characters['_me']['health-current'] > 0){
+        if(core_keys[core_storage_data['shoot']]['state']){
+            webgl_particles_create({
+              'gravity': false,
+              'translate-x': webgl_characters['_me']['translate-x'],
+              'translate-y': webgl_characters['_me']['translate-y'],
+              'translate-z': webgl_characters['_me']['translate-z'],
+            });
+        }
     }
 
     let inventory = '';
