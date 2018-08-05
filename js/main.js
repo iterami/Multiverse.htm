@@ -1,6 +1,7 @@
 'use strict';
 
 function logic(){
+    /*
     if(webgl_characters[webgl_character_id]['health-current'] > 0){
         if(core_keys[core_storage_data['shoot']]['state']){
             webgl_particles_create({
@@ -11,6 +12,7 @@ function logic(){
             });
         }
     }
+    */
 
     let inventory = '';
     for(let item in webgl_characters[webgl_character_id]['inventory']){
