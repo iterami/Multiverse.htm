@@ -34,6 +34,8 @@ function repo_escape(){
             'inventory': inventory,
             'jump-height': webgl_characters[webgl_character_id]['jump-height'],
             'level': webgl_characters[webgl_character_id]['level'],
+            'multiplier-jump': webgl_properties['multiplier-jump'],
+            'multiplier-speed': webgl_properties['multiplier-speed'],
             'speed': webgl_characters[webgl_character_id]['speed'],
           },
         });
@@ -78,8 +80,8 @@ function repo_init(){
       },
       'info': '<table><tr><td>Level: <span id=ui-level></span> (<span id=ui-experience></span>)'
         + '<td rowspan=2>Inventory: <ul id=ui-inventory></ul>'
-        + '<tr><td>Jump Height: <span id=ui-jump-height></span><br>'
-        + 'Speed: <span id=ui-speed></span></table>'
+        + '<tr><td>Jump Height: <span id=ui-jump-height></span> (x<span id=ui-multiplier-jump></span>)<br>'
+        + 'Speed: <span id=ui-speed></span> (x<span id=ui-multiplier-speed></span>)</table>'
         + '<hr><table><tr><td><input id=character_json type=file><td><input id=load_character type=button value="Load Character From File">'
         + '<tr><td><input id=level_json type=file><td><input id=load_level type=button value="Load Level From File">'
         + '<tr><td><select id=level_select></select><td><input id=load_prebuilt type=button value="Load Prebuilt Level"></table>',
