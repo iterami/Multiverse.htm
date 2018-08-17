@@ -1,26 +1,5 @@
 'use strict';
 
-function logic(){
-    /*
-    if(webgl_characters[webgl_character_id]['health-current'] > 0){
-        if(core_keys[core_storage_data['shoot']]['state']){
-            webgl_particles_create({
-              'gravity': false,
-              'translate-x': webgl_characters[webgl_character_id]['translate-x'],
-              'translate-y': webgl_characters[webgl_character_id]['translate-y'],
-              'translate-z': webgl_characters[webgl_character_id]['translate-z'],
-            });
-        }
-    }
-    */
-
-    core_ui_update({
-      'ids': {
-        'health-current': webgl_characters[webgl_character_id]['health-current'],
-      },
-    });
-}
-
 function repo_escape(){
     if(!core_menu_open
       || webgl_character_level() < -1){
@@ -138,6 +117,35 @@ function repo_init(){
               webgl_json_export();
           },
         },
+      },
+    });
+}
+
+function repo_load_level(){
+    core_ui_update({
+      'ids': {
+        'health-max': webgl_characters[webgl_character_id]['health-max'],
+      },
+    });
+}
+
+function repo_logic(){
+    /*
+    if(webgl_characters[webgl_character_id]['health-current'] > 0){
+        if(core_keys[core_storage_data['shoot']]['state']){
+            webgl_particles_create({
+              'gravity': false,
+              'translate-x': webgl_characters[webgl_character_id]['translate-x'],
+              'translate-y': webgl_characters[webgl_character_id]['translate-y'],
+              'translate-z': webgl_characters[webgl_character_id]['translate-z'],
+            });
+        }
+    }
+    */
+
+    core_ui_update({
+      'ids': {
+        'health-current': webgl_characters[webgl_character_id]['health-current'],
       },
     });
 }
