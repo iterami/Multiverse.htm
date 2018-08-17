@@ -17,29 +17,32 @@ function logic(){
     core_ui_update({
       'ids': {
         'health-current': webgl_characters[webgl_character_id]['health-current'],
-        'health-max': webgl_characters[webgl_character_id]['health-max'],
       },
     });
 }
 
 function repo_escape(){
-    if(webgl_character_level() > -2){
-        let inventory = '';
-        for(let item in webgl_characters[webgl_character_id]['inventory']){
-            inventory += '<li>' + item + ': ' + webgl_characters[webgl_character_id]['inventory'][item];
-        }
-        core_ui_update({
-          'ids': {
-            'experience': webgl_characters[webgl_character_id]['experience'],
-            'inventory': inventory,
-            'jump-height': webgl_characters[webgl_character_id]['jump-height'],
-            'level': webgl_characters[webgl_character_id]['level'],
-            'multiplier-jump': webgl_properties['multiplier-jump'],
-            'multiplier-speed': webgl_properties['multiplier-speed'],
-            'speed': webgl_characters[webgl_character_id]['speed'],
-          },
-        });
+    if(!core_menu_open
+      || webgl_character_level() < -1){
+        return;
     }
+
+    let inventory = '';
+    for(let item in webgl_characters[webgl_character_id]['inventory']){
+        inventory += '<li>' + item + ': ' + webgl_characters[webgl_character_id]['inventory'][item];
+    }
+    core_ui_update({
+      'ids': {
+        'experience': webgl_characters[webgl_character_id]['experience'],
+        'health-max': webgl_characters[webgl_character_id]['health-max'],
+        'inventory': inventory,
+        'jump-height': webgl_characters[webgl_character_id]['jump-height'],
+        'level': webgl_characters[webgl_character_id]['level'],
+        'multiplier-jump': webgl_properties['multiplier-jump'],
+        'multiplier-speed': webgl_properties['multiplier-speed'],
+        'speed': webgl_characters[webgl_character_id]['speed'],
+      },
+    });
 }
 
 function repo_init(){
