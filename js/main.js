@@ -39,16 +39,16 @@ function repo_init(){
           'onclick': function(){
               if(webgl_character_level() < 0
                 || window.confirm('Load new character?')){
-                  webgl_load_level({
+                  webgl_level_load({
                     'character': 1,
                     'json': document.getElementById('character_json').files[0] || false,
                   });
               }
           },
         },
-        'load_level': {
+        'level_load': {
           'onclick': function(){
-              webgl_load_level({
+              webgl_level_load({
                 'character': 0,
                 'json': document.getElementById('level_json').files[0] || false,
               });
@@ -65,7 +65,7 @@ function repo_init(){
         + '<tr><td>Jump Height: <span id=ui-jump-height></span> (x<span id=ui-multiplier-jump></span>)<br>'
         + 'Speed: <span id=ui-speed></span> (x<span id=ui-multiplier-speed></span>)</table>'
         + '<hr><table><tr><td><input id=character_json type=file><td><input id=load_character type=button value="Load Character From File">'
-        + '<tr><td><input id=level_json type=file><td><input id=load_level type=button value="Load Level From File">'
+        + '<tr><td><input id=level_json type=file><td><input id=level_load type=button value="Load Level From File">'
         + '<tr><td><select id=level_select></select><td><input id=load_prebuilt type=button value="Load Prebuilt Level"></table>',
       'keybinds': {
         32: {},
@@ -121,7 +121,7 @@ function repo_init(){
     });
 }
 
-function repo_load_level(){
+function repo_level_load(){
     core_ui_update({
       'ids': {
         'health-max': webgl_characters[webgl_character_id]['health-max'],

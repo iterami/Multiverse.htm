@@ -3,7 +3,7 @@
 function ajax_level(level){
     core_ajax({
       'todo': function(responseText){
-          webgl_load_level({
+          webgl_level_load({
             'character': 0,
             'json': responseText,
           });
