@@ -35,28 +35,31 @@ function repo_init(){
         },
       },
       'events': {
-        'load_character': {
+        'character-load': {
           'onclick': function(){
               if(webgl_character_level() < 0
                 || window.confirm('Load new character?')){
                   webgl_level_load({
                     'character': 1,
-                    'json': document.getElementById('character_json').files[0] || false,
+                    'json': document.getElementById('character-json').files[0] || false,
                   });
               }
           },
         },
-        'level_load': {
+        'home': {
+          'onclick': webgl_character_home,
+        },
+        'level-load': {
           'onclick': function(){
               webgl_level_load({
                 'character': 0,
-                'json': document.getElementById('level_json').files[0] || false,
+                'json': document.getElementById('level-json').files[0] || false,
               });
           },
         },
-        'load_prebuilt': {
+        'prebuilt-load': {
           'onclick': function(){
-              ajax_level(document.getElementById('level_select').value);
+              ajax_level(document.getElementById('level-select').value);
           },
         },
       },
@@ -64,9 +67,10 @@ function repo_init(){
         + '<td rowspan=2>Inventory: <ul id=ui-inventory></ul>'
         + '<tr><td>Jump Height: <span id=ui-jump-height></span> (x<span id=ui-multiplier-jump></span>)<br>'
         + 'Speed: <span id=ui-speed></span> (x<span id=ui-multiplier-speed></span>)</table>'
-        + '<hr><table><tr><td><input id=character_json type=file><td><input id=load_character type=button value="Load Character From File">'
-        + '<tr><td><input id=level_json type=file><td><input id=level_load type=button value="Load Level From File">'
-        + '<tr><td><select id=level_select></select><td><input id=load_prebuilt type=button value="Load Prebuilt Level"></table>',
+        + '<input id=home value="Return Home" type=button>'
+        + '<hr><table><tr><td><input id=character-json type=file><td><input id=character-load type=button value="Load Character From File">'
+        + '<tr><td><input id=level-json type=file><td><input id=level-load type=button value="Load Level From File">'
+        + '<tr><td><select id=level-select></select><td><input id=prebuilt-load type=button value="Load Prebuilt Level"></table>',
       'keybinds': {
         32: {},
         67: {},
@@ -100,19 +104,19 @@ function repo_init(){
         for(let level in multiverselevels){
             level_select += '<option value="' + level + '">' + multiverselevels[level] + '</option>';
         }
-        document.getElementById('level_select').innerHTML = level_select;
+        document.getElementById('level-select').innerHTML = level_select;
     }
 
     // Create character export tab.
     core_tab_create({
-      'content': '<input id=update_json type=button value="Update Character JSON"><br><textarea id=exported></textarea>',
+      'content': '<input id=update-json type=button value="Update Character JSON"><br><textarea id=exported></textarea>',
       'group': 'core-menu',
       'id': 'export',
       'label': 'Export Character',
     });
     core_events_bind({
       'elements': {
-        'update_json': {
+        'update-json': {
           'onclick': function(){
               webgl_json_export();
           },
