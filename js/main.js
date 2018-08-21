@@ -63,7 +63,8 @@ function repo_init(){
           },
         },
       },
-      'info': '<table><tr><td>Level: <span id=ui-level></span> (<span id=ui-experience></span>)'
+      'info': '<table><tr><td>Level: <span id=ui-level></span> (<span id=ui-experience></span>)<br>'
+        + 'Health: <span class=ui-health-current></span>/<span class=ui-health-max></span>'
         + '<td rowspan=2>Inventory: <ul id=ui-inventory></ul>'
         + '<tr><td>Jump Height: <span id=ui-jump-height></span> (x<span id=ui-multiplier-jump></span>)<br>'
         + 'Speed: <span id=ui-speed></span> (x<span id=ui-multiplier-speed></span>)</table>'
