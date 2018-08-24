@@ -63,7 +63,9 @@ function repo_init(){
           },
         },
         'update-json': {
-          'onclick': webgl_json_export,
+          'onclick': function(){
+              webgl_json_export();
+          },
         },
       },
       'info': '<table><tr><td>Level: <span id=ui-level></span> (<span id=ui-experience></span>)<br>'
