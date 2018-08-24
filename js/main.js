@@ -25,16 +25,6 @@ function repo_escape(){
 }
 
 function repo_init(){
-    // Create level loading tab.
-    core_tab_create({
-      'content': '<table><tr><td><input id=character-json type=file><td><input id=character-load type=button value="Load Character From File">'
-        + '<tr><td><input id=level-json type=file><td><input id=level-load type=button value="Load Level From File">'
-        + '<tr><td><select id=level-select></select><td><input id=prebuilt-load type=button value="Load Prebuilt Level"></table>',
-      'group': 'core-menu',
-      'id': 'load',
-      'label': 'Load Characters/Levels',
-    });
-
     core_repo_init({
       'beforeunload': {
         'todo': function(){
@@ -72,6 +62,9 @@ function repo_init(){
               ajax_level(document.getElementById('level-select').value);
           },
         },
+        'update-json': {
+          'onclick': webgl_json_export,
+        },
       },
       'info': '<table><tr><td>Level: <span id=ui-level></span> (<span id=ui-experience></span>)<br>'
         + 'Health: <span class=ui-health-current></span>/<span class=ui-health-max></span>'
@@ -102,6 +95,21 @@ function repo_init(){
         'shoot': 70,
       },
       'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning<tr><td><input id=shoot><td>Shoot</table>',
+      'tabs': {
+        'export': {
+          'content': '<input id=update-json type=button value="Update Character JSON"><br><textarea id=exported></textarea>',
+          'group': 'core-menu',
+          'label': 'Export Character',
+        },
+        'load': {
+          'content': '<table><tr><td><input id=character-json type=file><td><input id=character-load type=button value="Load Character From File">'
+            + '<tr><td><input id=level-json type=file><td><input id=level-load type=button value="Load Level From File">'
+            + '<tr><td><select id=level-select></select><td><input id=prebuilt-load type=button value="Load Prebuilt Level"></table>',
+          'default': true,
+          'group': 'core-menu',
+          'label': 'Load Characters/Levels',
+        },
+      },
       'title': 'Multiverse.htm',
       'ui': 'Health: <span id=ui-health-current></span>/<span id=ui-health-max></span><br>',
     });
@@ -114,27 +122,6 @@ function repo_init(){
         }
         document.getElementById('level-select').innerHTML = level_select;
     }
-
-    // Create character export tab.
-    core_tab_create({
-      'content': '<input id=update-json type=button value="Update Character JSON"><br><textarea id=exported></textarea>',
-      'group': 'core-menu',
-      'id': 'export',
-      'label': 'Export Character',
-    });
-    core_events_bind({
-      'elements': {
-        'update-json': {
-          'onclick': function(){
-              webgl_json_export();
-          },
-        },
-      },
-    });
-
-    core_tab_switch({
-      'id': 'tab_core-menu_load',
-    });
 }
 
 function repo_level_load(){
