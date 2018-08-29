@@ -1,27 +1,35 @@
 'use strict';
 
 function repo_escape(){
-    if(!core_menu_open
-      || webgl_character_level() < -1){
+    if(webgl_character_level() < 0){
         return;
     }
 
-    let inventory = '';
-    for(let item in webgl_characters[webgl_character_id]['inventory']){
-        inventory += '<li>' + item + ': ' + webgl_characters[webgl_character_id]['inventory'][item];
+    if(core_menu_open){
+        let inventory = '';
+        for(let item in webgl_characters[webgl_character_id]['inventory']){
+            inventory += '<li>' + item + ': ' + webgl_characters[webgl_character_id]['inventory'][item];
+        }
+        core_ui_update({
+          'ids': {
+            'experience': webgl_characters[webgl_character_id]['experience'],
+            'health-max': webgl_characters[webgl_character_id]['health-max'],
+            'inventory': inventory,
+            'jump-height': webgl_characters[webgl_character_id]['jump-height'],
+            'level': webgl_characters[webgl_character_id]['level'],
+            'multiplier-jump': webgl_properties['multiplier-jump'],
+            'multiplier-speed': webgl_properties['multiplier-speed'],
+            'speed': webgl_characters[webgl_character_id]['speed'],
+          },
+        });
+
+    }else{
+        core_ui_update({
+          'ids': {
+            'health-max': webgl_characters[webgl_character_id]['health-max'],
+          },
+        });
     }
-    core_ui_update({
-      'ids': {
-        'experience': webgl_characters[webgl_character_id]['experience'],
-        'health-max': webgl_characters[webgl_character_id]['health-max'],
-        'inventory': inventory,
-        'jump-height': webgl_characters[webgl_character_id]['jump-height'],
-        'level': webgl_characters[webgl_character_id]['level'],
-        'multiplier-jump': webgl_properties['multiplier-jump'],
-        'multiplier-speed': webgl_properties['multiplier-speed'],
-        'speed': webgl_characters[webgl_character_id]['speed'],
-      },
-    });
 }
 
 function repo_init(){
@@ -124,14 +132,6 @@ function repo_init(){
         }
         document.getElementById('level-select').innerHTML = level_select;
     }
-}
-
-function repo_level_load(){
-    core_ui_update({
-      'ids': {
-        'health-max': webgl_characters[webgl_character_id]['health-max'],
-      },
-    });
 }
 
 function repo_logic(){
