@@ -122,7 +122,9 @@ function repo_init(){
         },
       },
       'title': 'Multiverse.htm',
-      'ui': 'Health: <span id=ui-health-current></span>/<span id=ui-health-max></span><br>',
+      'ui': 'Health: <span id=ui-health-current></span>/<span id=ui-health-max></span><br>'
+        + '<div id=ui-npc-talk-div style=display:none><hr><div id=ui-npc-talk></div></div>'
+        + '<table id=ui-npc-trade-div style=display:none></table>',
     });
 
     // Populate prebuilt level select if multiverselevels defined.
