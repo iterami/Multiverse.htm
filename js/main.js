@@ -65,9 +65,23 @@ function repo_init(){
               });
           },
         },
-        'prebuilt-load': {
+        'prebuilt-load-character': {
           'onclick': function(){
-              ajax_level(document.getElementById('level-select').value);
+              if(webgl_character_level() < 0
+                || window.confirm('Load new character?')){
+                  ajax_level(
+                    document.getElementById('character-select').value,
+                    1
+                  );
+              }
+          },
+        },
+        'prebuilt-load-level': {
+          'onclick': function(){
+              ajax_level(
+                document.getElementById('level-select').value,
+                0
+              );
           },
         },
         'update-json': {
@@ -114,8 +128,9 @@ function repo_init(){
         },
         'load': {
           'content': '<table><tr><td><input id=character-json type=file><td><input id=character-load type=button value="Load Character From File">'
+            + '<tr><td><select id=character-select></select><td><input id=prebuilt-load-character type=button value="Load Prebuilt Character">'
             + '<tr><td><input id=level-json type=file><td><input id=level-load type=button value="Load Level From File">'
-            + '<tr><td><select id=level-select></select><td><input id=prebuilt-load type=button value="Load Prebuilt Level"></table>',
+            + '<tr><td><select id=level-select></select><td><input id=prebuilt-load-level type=button value="Load Prebuilt Level"></table>',
           'default': true,
           'group': 'core-menu',
           'label': 'Load Characters/Levels',
@@ -127,7 +142,14 @@ function repo_init(){
         + '<table id=npc-trade-div style=display:none></table>',
     });
 
-    // Populate prebuilt level select if multiverselevels defined.
+    // Populate prebuilt character/level selects if defined.
+    if('multiversecharacters' in window){
+        let character_select = '';
+        for(let character in multiversecharacters){
+            character_select += '<option value="' + character + '">' + multiversecharacters[character] + '</option>';
+        }
+        document.getElementById('character-select').innerHTML = character_select;
+    }
     if('multiverselevels' in window){
         let level_select = '';
         for(let level in multiverselevels){

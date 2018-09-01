@@ -1,10 +1,10 @@
 'use strict';
 
-function ajax_level(level){
+function ajax_level(level, character){
     core_ajax({
       'todo': function(responseText){
           webgl_level_load({
-            'character': 0,
+            'character': character,
             'json': responseText,
           });
       },
