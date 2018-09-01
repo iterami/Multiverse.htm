@@ -76,11 +76,11 @@ function repo_init(){
           },
         },
       },
-      'info': '<table><tr><td>Level: <span id=ui-level></span> (<span id=ui-experience></span>)<br>'
-        + 'Health: <span class=ui-health-current></span>/<span class=ui-health-max></span>'
-        + '<td rowspan=2>Inventory: <ul id=ui-inventory></ul>'
-        + '<tr><td>Jump Height: <span id=ui-jump-height></span> (x<span id=ui-multiplier-jump></span>)<br>'
-        + 'Speed: <span id=ui-speed></span> (x<span id=ui-multiplier-speed></span>)</table>'
+      'info': '<table><tr><td>Level: <span id=level></span> (<span id=experience></span>)<br>'
+        + 'Health: <span class=health-current></span>/<span class=health-max></span>'
+        + '<td rowspan=2>Inventory: <ul id=inventory></ul>'
+        + '<tr><td>Jump Height: <span id=jump-height></span> (x<span id=multiplier-jump></span>)<br>'
+        + 'Speed: <span id=speed></span> (x<span id=multiplier-speed></span>)</table>'
         + '<input id=home value="Return Home" type=button>',
       'keybinds': {
         32: {},
@@ -122,9 +122,9 @@ function repo_init(){
         },
       },
       'title': 'Multiverse.htm',
-      'ui': 'Health: <span id=ui-health-current></span>/<span id=ui-health-max></span><br>'
-        + '<div id=ui-npc-talk-div style=display:none><hr><div id=ui-npc-talk></div></div>'
-        + '<table id=ui-npc-trade-div style=display:none></table>',
+      'ui': 'Health: <span id=health-current></span>/<span id=health-max></span><br>'
+        + '<div id=npc-talk-div style=display:none><hr><div id=npc-talk></div></div>'
+        + '<table id=npc-trade-div style=display:none></table>',
     });
 
     // Populate prebuilt level select if multiverselevels defined.
