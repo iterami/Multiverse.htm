@@ -137,8 +137,8 @@ function repo_init(){
         },
       },
       'title': 'Multiverse.htm',
-      'ui': 'Health: <span id=health-current></span>/<span id=health-max></span><br>'
-        + '<div id=npc-talk-div style=display:none><hr><div id=npc-talk></div></div>'
+      'ui': 'Health: <span id=health-current></span>/<span id=health-max></span><hr>'
+        + '<div id=npc-talk></div>'
         + '<table id=npc-trade-div style=display:none></table>',
     });
 
