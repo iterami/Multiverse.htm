@@ -78,10 +78,12 @@ function repo_init(){
         },
         'prebuilt-load-level': {
           'onclick': function(){
-              ajax_level(
-                document.getElementById('level-select').value,
-                0
-              );
+              if(webgl_character_level() > -1){
+                  ajax_level(
+                    document.getElementById('level-select').value,
+                    0
+                  );
+              }
           },
         },
         'update-json': {
