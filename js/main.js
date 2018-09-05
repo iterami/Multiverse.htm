@@ -139,7 +139,7 @@ function repo_init(){
       'title': 'Multiverse.htm',
       'ui': 'Health: <span id=health-current></span>/<span id=health-max></span><hr>'
         + '<div id=npc-talk></div>'
-        + '<table id=npc-trade-div style=display:none></table>',
+        + '<div id=npc-trade></div>',
     });
 
     // Populate prebuilt character/level selects if defined.
