@@ -138,6 +138,7 @@ function repo_init(){
           'label': 'Load Characters/Levels',
         },
       },
+      'textures': true,
       'title': 'Multiverse.htm',
       'ui': 'Health: <span id=health-current></span>/<span id=health-max></span><hr>'
         + '<div id=npc-talk></div><div id=npc-trade></div>',
