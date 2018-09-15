@@ -8,7 +8,7 @@ function repo_escape(){
     if(core_menu_open){
         let inventory = '';
         for(let item in webgl_characters[webgl_character_id]['inventory']){
-            inventory += '<li>' + item + ': ' + webgl_characters[webgl_character_id]['inventory'][item];
+            inventory += '<li>' + item + ': ' + webgl_characters[webgl_character_id]['inventory'][item]['amount'];
         }
         core_ui_update({
           'ids': {
