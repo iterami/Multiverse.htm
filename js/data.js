@@ -15,7 +15,7 @@ function ajax_level(level, character){
 function equip_item(item, equip){
     webgl_item_equip({
       'character': webgl_character_id,
-      'equipped': equip,
+      'equip': equip,
       'item': item,
     });
 
