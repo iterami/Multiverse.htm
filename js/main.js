@@ -8,7 +8,8 @@ function repo_escape(){
     if(core_menu_open){
         let inventory = '';
         for(let item in webgl_characters[webgl_character_id]['inventory']){
-            inventory += '<li>' + item + ': ' + webgl_characters[webgl_character_id]['inventory'][item]['amount'];
+            inventory += '<tr><td>' + item
+              + '<td>' + webgl_characters[webgl_character_id]['inventory'][item]['amount'];
         }
         core_ui_update({
           'ids': {
@@ -94,7 +95,7 @@ function repo_init(){
       },
       'info': '<table><tr><td>Level: <span id=level></span> (<span id=experience></span>)<br>'
         + 'Health: <span class=health-current></span>/<span class=health-max></span>'
-        + '<td rowspan=2>Inventory: <ul id=inventory></ul>'
+        + '<td rowspan=2><table id=inventory></table>'
         + '<tr><td>Jump Height: <span id=jump-height></span> (x<span id=multiplier-jump></span>)<br>'
         + 'Speed: <span id=speed></span> (x<span id=multiplier-speed></span>)</table>'
         + '<input id=home value="Return Home" type=button>',
