@@ -6,21 +6,10 @@ function repo_escape(){
     }
 
     if(core_menu_open){
-        let inventory = '';
-        for(let item in webgl_characters[webgl_character_id]['inventory']){
-            inventory += '<tr><td>' + item
-              + '<td>' + webgl_characters[webgl_character_id]['inventory'][item]['amount']
-              + '<td>';
-
-            inventory += webgl_characters[webgl_character_id]['inventory'][item]['equipped']
-              ? '<input type=button value=unequip>'
-              : '<input type=button value=equip>';
-        }
         core_ui_update({
           'ids': {
             'experience': webgl_characters[webgl_character_id]['experience'],
             'health-max': webgl_characters[webgl_character_id]['health-max'],
-            'inventory': inventory,
             'jump-height': webgl_characters[webgl_character_id]['jump-height'],
             'level': webgl_characters[webgl_character_id]['level'],
             'multiplier-jump': webgl_properties['multiplier-jump'],
@@ -28,6 +17,8 @@ function repo_escape(){
             'speed': webgl_characters[webgl_character_id]['speed'],
           },
         });
+
+        inventory_update();
 
     }else{
         core_ui_update({
