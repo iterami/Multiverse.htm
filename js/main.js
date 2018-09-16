@@ -79,9 +79,9 @@ function repo_init(){
       },
       'info': '<table><tr><td>Level: <span id=level></span> (<span id=experience></span>)<br>'
         + 'Health: <span class=health-current></span>/<span class=health-max></span>'
-        + '<td rowspan=2><table id=inventory></table>'
-        + '<tr><td>Jump Height: <span id=jump-height></span> (x<span id=multiplier-jump></span>)<br>'
-        + 'Speed: <span id=speed></span> (x<span id=multiplier-speed></span>)</table>'
+        + '<td>Jump Height: <span id=jump-height></span> (x<span id=multiplier-jump></span>)<br>'
+        + 'Speed: <span id=speed></span> (x<span id=multiplier-speed></span>)'
+        + '<tr><td colspan=2><table id=inventory></table></table>'
         + '<input id=home value="Return Home" type=button>',
       'keybinds': {
         32: {},
