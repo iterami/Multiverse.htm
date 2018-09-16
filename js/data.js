@@ -19,10 +19,10 @@ function equip_item(item, equip){
       'item': item,
     });
 
-    inventory_update();
+    charactersheet_update();
 }
 
-function inventory_update(){
+function charactersheet_update(){
     let inventory = '';
     for(let item in webgl_characters[webgl_character_id]['inventory']){
         inventory += '<tr><td>' + item
@@ -35,7 +35,14 @@ function inventory_update(){
     }
     core_ui_update({
       'ids': {
+        'experience': webgl_characters[webgl_character_id]['experience'],
+        'health-max': webgl_characters[webgl_character_id]['health-max'],
         'inventory': inventory,
+        'jump-height': webgl_characters[webgl_character_id]['jump-height'],
+        'level': webgl_characters[webgl_character_id]['level'],
+        'multiplier-jump': webgl_properties['multiplier-jump'],
+        'multiplier-speed': webgl_properties['multiplier-speed'],
+        'speed': webgl_characters[webgl_character_id]['speed'],
       },
     });
 }
