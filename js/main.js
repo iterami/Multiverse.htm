@@ -9,7 +9,12 @@ function repo_escape(){
         let inventory = '';
         for(let item in webgl_characters[webgl_character_id]['inventory']){
             inventory += '<tr><td>' + item
-              + '<td>' + webgl_characters[webgl_character_id]['inventory'][item]['amount'];
+              + '<td>' + webgl_characters[webgl_character_id]['inventory'][item]['amount']
+              + '<td>';
+
+            inventory += webgl_characters[webgl_character_id]['inventory'][item]['equipped']
+              ? '<input type=button value=unequip>'
+              : '<input type=button value=equip>';
         }
         core_ui_update({
           'ids': {
