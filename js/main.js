@@ -150,17 +150,16 @@ function repo_init(){
 }
 
 function repo_logic(){
-    if(core_keys[core_storage_data['shoot']]['state']
-      && webgl_characters[webgl_character_id]['health-current'] > 0){
-        let inventory = webgl_characters[webgl_character_id]['inventory'];
-        for(let item in inventory){
-            if(!inventory[item]['equipped']){
-                continue;
-            }
+    let inventory = webgl_characters[webgl_character_id]['inventory'];
+    for(let item in inventory){
+        if(!inventory[item]['equipped']){
+            continue;
+        }
 
-            webgl_particles_create({
-              'gravity': false,
-            });
+        if(core_keys[core_storage_data['shoot']]['state']
+          && webgl_characters[webgl_character_id]['health-current'] > 0
+          && inventory[item]['spell'] !== false){
+            webgl_particles_create(inventory[item]['spell']);
         }
     }
 
