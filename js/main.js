@@ -150,18 +150,19 @@ function repo_init(){
 }
 
 function repo_logic(){
-    /*
-    if(webgl_characters[webgl_character_id]['health-current'] > 0){
-        if(core_keys[core_storage_data['shoot']]['state']){
+    if(core_keys[core_storage_data['shoot']]['state']
+      && webgl_characters[webgl_character_id]['health-current'] > 0){
+        let inventory = webgl_characters[webgl_character_id]['inventory'];
+        for(let item in inventory){
+            if(!inventory[item]['equipped']){
+                continue;
+            }
+
             webgl_particles_create({
               'gravity': false,
-              'translate-x': webgl_characters[webgl_character_id]['translate-x'],
-              'translate-y': webgl_characters[webgl_character_id]['translate-y'],
-              'translate-z': webgl_characters[webgl_character_id]['translate-z'],
             });
         }
     }
-    */
 
     core_ui_update({
       'ids': {
