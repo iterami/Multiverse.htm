@@ -159,7 +159,12 @@ function repo_logic(){
         if(core_keys[core_storage_data['shoot']]['state']
           && webgl_characters[webgl_character_id]['health-current'] > 0
           && inventory[item]['spell'] !== false){
-            webgl_particles_create(inventory[item]['spell']);
+            let properties = {};
+            Object.assign(
+              properties,
+              inventory[item]['spell']
+            );
+            webgl_particles_create(properties);
         }
     }
 
