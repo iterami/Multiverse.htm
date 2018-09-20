@@ -81,7 +81,7 @@ function repo_init(){
         + 'Health: <span class=health-current></span>/<span class=health-max></span>'
         + '<td>Jump Height: <span id=jump-height></span> (x<span id=multiplier-jump></span>)<br>'
         + 'Speed: <span id=speed></span> (x<span id=multiplier-speed></span>)'
-        + '<tr><td colspan=2><table id=inventory></table></table>'
+        + '<tr><td colspan=2><span id=character-tabs></span><div id=character-tabcontent></div></table>'
         + '<input id=home value="Return Home" type=button>',
       'keybinds': {
         32: {},
@@ -115,6 +115,12 @@ function repo_init(){
           'content': '<input id=update-json type=button value="Update Character JSON"><br><textarea id=exported></textarea>',
           'group': 'core-menu',
           'label': 'Export Character',
+        },
+        'inventory': {
+          'content': '<table id=inventory></table>',
+          'default': true,
+          'group': 'character',
+          'label': 'inventory',
         },
         'load': {
           'content': '<table><tr><td><input id=character-json type=file><td><input id=character-load type=button value="Load Character From File">'
