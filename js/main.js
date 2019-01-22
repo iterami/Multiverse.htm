@@ -145,6 +145,7 @@ function repo_init(){
       'ui': 'Health: <span id=health-current></span>/<span id=health-max></span><hr>'
         + '<div id=npc-talk></div><div id=npc-trade></div>',
     });
+    webgl_settings_init();
 
     // Populate prebuilt character/level selects if defined.
     if('multiversecharacters' in window){
