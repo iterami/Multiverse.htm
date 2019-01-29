@@ -4,7 +4,9 @@ function ajax_level(level){
     core_ajax({
       'todo': function(responseText){
           webgl_level_load({
-            'character': level in multiversecharacters,
+            'character': level in multiversecharacters
+              ? 1
+              : 0,
             'json': responseText,
           });
       },
