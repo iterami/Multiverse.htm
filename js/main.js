@@ -54,20 +54,14 @@ function repo_init(){
           'onclick': function(){
               if(webgl_character_level() < 0
                 || window.confirm('Load new character?')){
-                  ajax_level(
-                    document.getElementById('character-select').value,
-                    1
-                  );
+                  ajax_level(document.getElementById('character-select').value);
               }
           },
         },
         'prebuilt-load-level': {
           'onclick': function(){
               if(webgl_character_level() > -1){
-                  ajax_level(
-                    document.getElementById('level-select').value,
-                    0
-                  );
+                  ajax_level(document.getElementById('level-select').value);
               }
           },
         },
@@ -161,6 +155,12 @@ function repo_init(){
             level_select += '<option value="' + level + '">' + multiverselevels[level] + '</option>';
         }
         document.getElementById('level-select').innerHTML = level_select;
+    }
+
+    // Handle prebuilt character/level url args.
+    let level_arg = window.location.search.substring(1);
+    if(level_arg.length > 0){
+        ajax_level(level_arg);
     }
 }
 
