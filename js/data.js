@@ -1,9 +1,19 @@
 'use strict';
 
 function ajax_level(level){
+    if(webgl_levelcache['id'] === level){
+        webgl_level_load({
+          'character': level in multiversecharacters
+            ? 1
+            : 0,
+          'json': webgl_levelcache['json'],
+        });
+    }
+
     core_ajax({
       'todo': function(responseText){
           webgl_level_load({
+            'cache': level,
             'character': level in multiversecharacters
               ? 1
               : 0,
