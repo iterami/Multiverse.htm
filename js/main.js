@@ -195,6 +195,7 @@ function repo_logic(){
               properties,
               inventory[item]['spell']
             );
+            properties['parent'] = webgl_characters[webgl_character_id];
             webgl_particles_create(properties);
         }
     }
