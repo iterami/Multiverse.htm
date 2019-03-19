@@ -30,12 +30,15 @@ function repo_init(){
       'events': {
         'character-random': {
           'onclick': function(){
-              webgl_level_load({
-                'character': 2,
-              });
-              webgl_character_random({
-                'id': '_me',
-              });
+              if(webgl_character_level() < 0
+                || window.confirm('Load new character?')){
+                  webgl_level_load({
+                    'character': 2,
+                  });
+                  webgl_character_random({
+                    'id': '_me',
+                  });
+              }
           },
         },
         'character-load': {
