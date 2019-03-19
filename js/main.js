@@ -28,6 +28,16 @@ function repo_init(){
         },
       },
       'events': {
+        'character-random': {
+          'onclick': function(){
+              webgl_level_load({
+                'character': 2,
+              });
+              webgl_character_random({
+                'id': '_me',
+              });
+          },
+        },
         'character-load': {
           'onclick': function(){
               if(webgl_character_level() < 0
@@ -118,6 +128,9 @@ function repo_init(){
         },
         'load': {
           'content': '<table><tr>'
+              + '<td>'
+              + '<td><input id=character-random type=button value="Create Random Character">'
+            + '<tr>'
               + '<td><input id=character-json type=file>'
               + '<td><input id=character-load type=button value="Load Character From File">'
             + '<tr>'
