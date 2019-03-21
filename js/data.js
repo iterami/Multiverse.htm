@@ -1,11 +1,15 @@
 'use strict';
 
-function ajax_level(level){
+function ajax_level(level, character){
+    if(character === void 0){
+        character = level in multiversecharacters
+          ? 1
+          : 0;
+    }
+
     if(webgl_levelcache['id'] === level){
         webgl_level_load({
-          'character': level in multiversecharacters
-            ? 1
-            : 0,
+          'character': character,
           'json': webgl_levelcache['json'],
         });
 
@@ -16,9 +20,7 @@ function ajax_level(level){
       'todo': function(responseText){
           webgl_level_load({
             'cache': level,
-            'character': level in multiversecharacters
-              ? 1
-              : 0,
+            'character': character,
             'json': responseText,
           });
       },
