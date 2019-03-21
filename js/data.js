@@ -13,19 +13,24 @@ function ajax_level(level, character){
           'json': webgl_levelcache['json'],
         });
 
-        return;
+    }else{
+        core_ajax({
+          'todo': function(responseText){
+              webgl_level_load({
+                'cache': level,
+                'character': character,
+                'json': responseText,
+              });
+          },
+          'url': '../MultiverseLevels.htm/json/' + level + '.json',
+        });
     }
 
-    core_ajax({
-      'todo': function(responseText){
-          webgl_level_load({
-            'cache': level,
-            'character': character,
-            'json': responseText,
-          });
-      },
-      'url': '../MultiverseLevels.htm/json/' + level + '.json',
-    });
+    if(character === 2){
+        webgl_character_random({
+          'id': '_me',
+        });
+    }
 }
 
 function equip_item(item, equip){
