@@ -46,6 +46,7 @@ function repo_init(){
           'onclick': function(){
               if(webgl_character_level() < 0
                 || window.confirm('Load new character?')){
+                  webgl_level_unload();
                   webgl_level_load({
                     'character': 1,
                     'json': document.getElementById('character-json').files[0] || false,
@@ -68,6 +69,7 @@ function repo_init(){
           'onclick': function(){
               if(webgl_character_level() < 0
                 || window.confirm('Load new character?')){
+                  webgl_level_unload();
                   ajax_level(
                     document.getElementById('character-select').value,
                     1
