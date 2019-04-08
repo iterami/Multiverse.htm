@@ -32,6 +32,7 @@ function repo_init(){
           'onclick': function(){
               if(webgl_character_level() < 0
                 || window.confirm('Load new character?')){
+                  webgl_level_unload();
                   webgl_level_load({
                     'character': 2,
                   });
