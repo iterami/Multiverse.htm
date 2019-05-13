@@ -103,6 +103,11 @@ function repo_init(){
         32: {},
         67: {},
         70: {},
+        192: {
+          'todo': function(){
+              webgl_characters[webgl_character_id]['automove'] = !webgl_characters[webgl_character_id]['automove'];
+          },
+        },
       },
       'menu': true,
       'mousebinds': {
