@@ -100,7 +100,6 @@ function repo_init(){
         + '<tr><td colspan=2><span id=character-tabs></span><div id=character-tabcontent></div></table>'
         + '<input id=home value="Return Home" type=button>',
       'keybinds': {
-        32: {},
         67: {},
         70: {},
         192: {
