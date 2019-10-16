@@ -89,7 +89,7 @@ function repo_init(){
         },
         'update-json': {
           'onclick': function(){
-              webgl_json_export();
+              document.getElementById('exported').value = webgl_json_export();
           },
         },
       },
