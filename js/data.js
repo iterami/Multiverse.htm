@@ -52,7 +52,7 @@ function equip_item(item, equip){
 
 function charactersheet_update(){
     let inventory = '';
-    for(let item in webgl_characters[webgl_character_id]['inventory']){
+    for(const item in webgl_characters[webgl_character_id]['inventory']){
         inventory += '<tr><td>' + item
           + '<td>' + webgl_characters[webgl_character_id]['inventory'][item]['amount']
           + '<td><input type=button onclick="equip_item(\'' + item + '\',';

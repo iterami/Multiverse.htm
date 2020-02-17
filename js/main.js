@@ -171,21 +171,21 @@ function repo_init(){
     // Populate prebuilt character/level selects if defined.
     if('multiversecharacters' in window){
         let character_select = '';
-        for(let character in multiversecharacters){
+        for(const character in multiversecharacters){
             character_select += '<option value="' + character + '">' + multiversecharacters[character] + '</option>';
         }
         document.getElementById('character-select').innerHTML = character_select;
     }
     if('multiverselevels' in window){
         let level_select = '';
-        for(let level in multiverselevels){
+        for(const level in multiverselevels){
             level_select += '<option value="' + level + '">' + multiverselevels[level] + '</option>';
         }
         document.getElementById('level-select').innerHTML = level_select;
     }
 
     // Handle prebuilt character/level url args.
-    let level_arg = window.location.search.substring(1);
+    const level_arg = window.location.search.substring(1);
     if(level_arg.length > 0){
         ajax_level(
           level_arg,
@@ -196,7 +196,7 @@ function repo_init(){
 
 function repo_logic(){
     let inventory = webgl_characters[webgl_character_id]['inventory'];
-    for(let item in inventory){
+    for(const item in inventory){
         if(!inventory[item]['equipped']){
             continue;
         }
@@ -204,7 +204,7 @@ function repo_logic(){
         if(core_keys[core_storage_data['shoot']]['state']
           && webgl_characters[webgl_character_id]['health-current'] > 0
           && inventory[item]['spell'] !== false){
-            let properties = {};
+            const properties = {};
             Object.assign(
               properties,
               inventory[item]['spell']
