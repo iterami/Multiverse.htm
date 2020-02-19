@@ -31,7 +31,7 @@ function repo_init(){
         'character-random': {
           'onclick': function(){
               if(webgl_character_level() < 0
-                || window.confirm('Load new character?')){
+                || globalThis.confirm('Load new character?')){
                   webgl_level_unload();
                   webgl_level_load({
                     'character': 2,
@@ -45,7 +45,7 @@ function repo_init(){
         'character-load': {
           'onclick': function(){
               if(webgl_character_level() < 0
-                || window.confirm('Load new character?')){
+                || globalThis.confirm('Load new character?')){
                   webgl_level_unload();
                   webgl_level_load({
                     'character': 1,
@@ -68,7 +68,7 @@ function repo_init(){
         'prebuilt-load-character': {
           'onclick': function(){
               if(webgl_character_level() < 0
-                || window.confirm('Load new character?')){
+                || globalThis.confirm('Load new character?')){
                   webgl_level_unload();
                   ajax_level(
                     document.getElementById('character-select').value,
@@ -169,14 +169,14 @@ function repo_init(){
     webgl_settings_init();
 
     // Populate prebuilt character/level selects if defined.
-    if('multiversecharacters' in window){
+    if('multiversecharacters' in globalThis){
         let character_select = '';
         for(const character in multiversecharacters){
             character_select += '<option value="' + character + '">' + multiversecharacters[character] + '</option>';
         }
         document.getElementById('character-select').innerHTML = character_select;
     }
-    if('multiverselevels' in window){
+    if('multiverselevels' in globalThis){
         let level_select = '';
         for(const level in multiverselevels){
             level_select += '<option value="' + level + '">' + multiverselevels[level] + '</option>';
@@ -185,7 +185,7 @@ function repo_init(){
     }
 
     // Handle prebuilt character/level url args.
-    const level_arg = window.location.search.substring(1);
+    const level_arg = globalThis.location.search.substring(1);
     if(level_arg.length > 0){
         ajax_level(
           level_arg,
