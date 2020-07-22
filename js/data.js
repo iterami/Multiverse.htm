@@ -8,33 +8,33 @@ function ajax_level(level, character){
     }
 
     if(webgl_levelcache['id'] === level){
-        webgl_level_load({
-          'character': character,
-          'json': webgl_levelcache['json'],
-        });
-
         if(character === 2){
             webgl_character_random({
               'id': '_me',
             });
         }
 
+        webgl_level_load({
+          'character': character,
+          'json': webgl_levelcache['json'],
+        });
+
         return;
     }
 
     core_ajax({
       'todo': function(responseText){
-          webgl_level_load({
-            'cache': level,
-            'character': character,
-            'json': responseText,
-          });
-
           if(character === 2){
               webgl_character_random({
                 'id': '_me',
               });
           }
+
+          webgl_level_load({
+            'cache': level,
+            'character': character,
+            'json': responseText,
+          });
       },
       'url': '../MultiverseLevels.htm/json/' + level + '.json',
     });
