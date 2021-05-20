@@ -55,7 +55,12 @@ function repo_init(){
           },
         },
         'home': {
-          'onclick': webgl_character_home,
+          'onclick': function(){
+              if(webgl_character_level() > -1){
+                  webgl_character_home();
+                  core_escape();
+              }
+          },
         },
         'level-load': {
           'onclick': function(){
