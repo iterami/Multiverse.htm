@@ -118,7 +118,13 @@ function repo_init(){
           'preventDefault': true,
         },
         'mousedown': {
-          'todo': webgl_camera_handle,
+          'todo': function(){
+              webgl_camera_handle();
+              webgl_pick_entity({
+                'x': core_mouse['down-x'],
+                'y': core_mouse['down-y'],
+              });
+          },
         },
         'mousemove': {
           'preventDefault': true,
