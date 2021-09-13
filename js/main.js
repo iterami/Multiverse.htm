@@ -118,13 +118,7 @@ function repo_init(){
           'preventDefault': true,
         },
         'mousedown': {
-          'todo': function(){
-              webgl_camera_handle();
-              webgl_pick_entity({
-                'x': core_mouse['down-x'],
-                'y': core_mouse['down-y'],
-              });
-          },
+          'todo': webgl_camera_handle,
         },
         'mousemove': {
           'preventDefault': true,
@@ -132,6 +126,17 @@ function repo_init(){
         },
         'mousewheel': {
           'todo': webgl_camera_zoom,
+        },
+        'mouseup': {
+          'todo': function(){
+              if(webgl_character_level() < -1){
+                  return;
+              }
+              webgl_pick_entity({
+                'x': core_mouse['down-x'],
+                'y': core_mouse['down-y'],
+              });
+          },
         },
       },
       'storage': {
