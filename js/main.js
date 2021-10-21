@@ -151,12 +151,6 @@ function repo_init(){
           'group': 'core-menu',
           'label': 'Export Character',
         },
-        'inventory': {
-          'content': '<table id=inventory></table>',
-          'default': true,
-          'group': 'character',
-          'label': 'inventory',
-        },
         'load': {
           'content': '<table><tr>'
               + '<td>'
