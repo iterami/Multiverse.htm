@@ -179,8 +179,7 @@ function repo_init(){
         },
       },
       'title': 'Multiverse.htm',
-      'ui': 'Health: <span id=health-current></span>/<span id=health-max></span>'
-        + '<div id=npc></div><div id=npc-talk></div><div id=npc-trade></div>',
+      'ui': 'Health: <span id=health-current></span>/<span id=health-max></span>',
     });
     webgl_settings_init();
 
@@ -211,25 +210,6 @@ function repo_init(){
 }
 
 function repo_logic(){
-    let inventory = webgl_characters[webgl_character_id]['inventory'];
-    for(const item in inventory){
-        if(!inventory[item]['equipped']){
-            continue;
-        }
-
-        if(core_keys[core_storage_data['shoot']]['state']
-          && webgl_characters[webgl_character_id]['health-current'] > 0
-          && inventory[item]['spell'] !== false){
-            const properties = {};
-            Object.assign(
-              properties,
-              inventory[item]['spell']
-            );
-            properties['parent'] = webgl_characters[webgl_character_id];
-            webgl_particles_create(properties);
-        }
-    }
-
     core_ui_update({
       'ids': {
         'health-current': webgl_characters[webgl_character_id]['health-current'],

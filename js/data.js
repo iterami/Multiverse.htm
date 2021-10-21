@@ -40,32 +40,11 @@ function ajax_level(level, character){
     });
 }
 
-function equip_item(item, equip){
-    webgl_item_equip({
-      'character': webgl_character_id,
-      'equip': equip,
-      'item': item,
-    });
-
-    charactersheet_update();
-}
-
 function charactersheet_update(){
-    let inventory = '';
-    for(const item in webgl_characters[webgl_character_id]['inventory']){
-        inventory += '<tr><td>' + item
-          + '<td>' + webgl_characters[webgl_character_id]['inventory'][item]['amount']
-          + '<td><input type=button onclick="equip_item(\'' + item + '\',';
-
-        inventory += webgl_characters[webgl_character_id]['inventory'][item]['equipped']
-          ? 'false)" value=unequip>'
-          : 'true)" value=equip>';
-    }
     core_ui_update({
       'ids': {
         'experience': webgl_characters[webgl_character_id]['experience'],
         'health-max': webgl_characters[webgl_character_id]['health-max'],
-        'inventory': inventory,
         'jump-height': webgl_characters[webgl_character_id]['jump-height'],
         'level': webgl_characters[webgl_character_id]['level'],
         'multiplier-jump': webgl_properties['multiplier-jump'],
