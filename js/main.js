@@ -98,12 +98,11 @@ function repo_init(){
           },
         },
       },
-      'info': '<table><tr><td>Level: <span id=level></span> (<span id=experience></span>)<br>'
-        + 'Health: <span class=health-current></span>/<span class=health-max></span>'
-        + '<td>Jump Height: <span id=jump-height></span> (x<span id=multiplier-jump></span>)<br>'
-        + 'Speed: <span id=speed></span> (x<span id=multiplier-speed></span>)'
-        + '<tr><td colspan=2><span id=character-tabs></span><div id=character-tabcontent></div></table>'
-        + '<input id=home value="Return Home" type=button>',
+      'info': '<table><tr><td>Level<td><span id=level></span> (<span id=experience></span>)'
+        + '<tr><td>Health<td><span class=health-current></span>/<span class=health-max></span>'
+        + '<tr><td>Jump Height<td><span id=jump-height></span> (x<span id=multiplier-jump></span>)'
+        + '<tr><td>Speed<td><span id=speed></span> (x<span id=multiplier-speed></span>)'
+        + '</table><input id=home value="Return Home" type=button>',
       'keybinds': {
         70: {},
         192: {
