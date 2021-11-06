@@ -194,7 +194,7 @@ function repo_init(){
 
     // Handle prebuilt character/level url args.
     const level_arg = globalThis.location.search.substring(1);
-    if(level_arg.length > 0){
+    if(level_arg.length){
         ajax_level(
           level_arg,
           2
