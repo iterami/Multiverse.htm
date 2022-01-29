@@ -143,7 +143,7 @@ function repo_init(){
         'shoot': 70,
       },
       'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning'
-        + '<tr><td><input class=mini id=shoot><td>Shoot</table>',
+        + '<tr><td><input class=mini id=shoot min=0 type=number><td>Shoot</table>',
       'tabs': {
         'export': {
           'content': '<input id=update-json type=button value="Update Character JSON"><br><textarea id=exported></textarea>',
@@ -176,7 +176,6 @@ function repo_init(){
     });
     webgl_settings_init();
 
-    // Populate prebuilt character/level selects if defined.
     if('multiversecharacters' in globalThis){
         let character_select = '';
         for(const character in multiversecharacters){
@@ -192,7 +191,6 @@ function repo_init(){
         document.getElementById('level-select').innerHTML = level_select;
     }
 
-    // Handle prebuilt character/level url args.
     const level_arg = globalThis.location.search.substring(1);
     if(level_arg.length){
         ajax_level(
