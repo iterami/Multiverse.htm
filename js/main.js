@@ -143,7 +143,7 @@ function repo_init(){
         'shoot': 70,
       },
       'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning'
-        + '<tr><td><input class=mini id=shoot min=0 type=number><td>Shoot</table>',
+        + '<tr><td><input class=mini id=shoot min=0 step=any type=number><td>Shoot</table>',
       'tabs': {
         'export': {
           'content': '<input id=update-json type=button value="Update Character JSON"><br><textarea id=exported></textarea>',
