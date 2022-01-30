@@ -174,7 +174,7 @@ function repo_init(){
       'title': 'Multiverse.htm',
       'ui': 'Health: <span id=health-current></span>/<span id=health-max></span>',
     });
-    webgl_settings_init();
+    webgl_storage_init();
 
     if('multiversecharacters' in globalThis){
         let character_select = '';
