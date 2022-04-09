@@ -7,6 +7,7 @@ function repo_escape(){
 
     if(core_menu_open){
         charactersheet_update();
+        webgl_uniform_update();
 
     }else{
         core_ui_update({
