@@ -124,9 +124,6 @@ function repo_init(){
           'preventDefault': true,
           'todo': webgl_camera_handle,
         },
-        'mousewheel': {
-          'todo': webgl_camera_zoom,
-        },
         'mouseup': {
           'todo': function(){
               if(webgl_character_level() < -1){
@@ -137,6 +134,9 @@ function repo_init(){
                 'y': core_mouse['down-y'],
               });
           },
+        },
+        'mousewheel': {
+          'todo': webgl_camera_zoom,
         },
       },
       'storage': {
