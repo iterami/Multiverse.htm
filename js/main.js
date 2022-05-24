@@ -11,7 +11,9 @@ function repo_escape(){
 
     }else{
         core_ui_update({
+          'class': true,
           'ids': {
+            'health-current': webgl_characters[webgl_character_id]['health-current'],
             'health-max': webgl_characters[webgl_character_id]['health-max'],
           },
         });

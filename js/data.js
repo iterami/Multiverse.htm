@@ -42,6 +42,7 @@ function ajax_level(level, character){
 
 function charactersheet_update(){
     core_ui_update({
+      'class': true,
       'ids': {
         'experience': webgl_characters[webgl_character_id]['experience'],
         'health-max': webgl_characters[webgl_character_id]['health-max'],
