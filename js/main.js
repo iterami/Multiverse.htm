@@ -73,28 +73,6 @@ function repo_init(){
               });
           },
         },
-        'prebuilt-load-character': {
-          'onclick': function(){
-              if(webgl_character_level() < 0
-                || globalThis.confirm('Load new character?')){
-                  webgl_level_unload();
-                  ajax_level(
-                    document.getElementById('character-select').value,
-                    1
-                  );
-              }
-          },
-        },
-        'prebuilt-load-level': {
-          'onclick': function(){
-              if(webgl_character_level() > -1){
-                  ajax_level(
-                    document.getElementById('level-select').value,
-                    0
-                  );
-              }
-          },
-        },
         'update-json': {
           'onclick': function(){
               document.getElementById('exported').value = webgl_json_export();
@@ -161,14 +139,8 @@ function repo_init(){
               + '<td><input id=character-json type=file>'
               + '<td><input id=character-load type=button value="Load Character from File">'
             + '<tr>'
-              + '<td><select id=character-select></select>'
-              + '<td><input id=prebuilt-load-character type=button value="Load Prebuilt Character">'
-            + '<tr>'
               + '<td><input id=level-json type=file>'
-              + '<td><input id=level-load type=button value="Load Level from File">'
-            + '<tr>'
-              + '<td><select id=level-select></select>'
-              + '<td><input id=prebuilt-load-level type=button value="Load Prebuilt Level"></table>',
+              + '<td><input id=level-load type=button value="Load Level from File">',
           'default': true,
           'group': 'core-menu',
           'label': 'Load Characters/Levels',
@@ -185,21 +157,6 @@ function repo_init(){
             character_select += '<option value="' + character + '">' + multiversecharacters[character] + '</option>';
         }
         document.getElementById('character-select').innerHTML = character_select;
-    }
-    if('multiverselevels' in globalThis){
-        let level_select = '';
-        for(const level in multiverselevels){
-            level_select += '<option value="' + level + '">' + multiverselevels[level] + '</option>';
-        }
-        document.getElementById('level-select').innerHTML = level_select;
-    }
-
-    const level_arg = globalThis.location.search.substring(1);
-    if(level_arg.length){
-        ajax_level(
-          level_arg,
-          2
-        );
     }
 }
 
