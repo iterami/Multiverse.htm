@@ -67,10 +67,12 @@ function repo_init(){
         },
         'level-load': {
           'onclick': function(){
+              const level_file = document.getElementById('level-json').files[0];
               webgl_level_load({
                 'character': 0,
-                'json': document.getElementById('level-json').files[0] || false,
+                'json': level_file || false,
               });
+              document.title = (level_file !== void 0 ? level_file.name + ' - ' : '') + core_repo_title;
           },
         },
         'update-json': {
