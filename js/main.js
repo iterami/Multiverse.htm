@@ -65,14 +65,23 @@ function repo_init(){
               }
           },
         },
-        'level-load': {
+        'level-load-file': {
           'onclick': function(){
-              const level_file = document.getElementById('level-json').files[0];
+              const level_file = document.getElementById('level-file').files[0];
               webgl_level_load({
                 'character': 0,
                 'json': level_file || false,
               });
               document.title = (level_file !== void 0 ? level_file.name + ' - ' : '') + core_repo_title;
+          },
+        },
+        'level-load-textarea': {
+          'onclick': function(){
+              webgl_level_load({
+                'character': 0,
+                'json': JSON.parse(document.getElementById('level-textarea').value),
+              });
+              document.title = core_repo_title;
           },
         },
         'update-json': {
@@ -134,15 +143,10 @@ function repo_init(){
           'label': 'Export Character',
         },
         'load': {
-          'content': '<table><tr>'
-              + '<td>'
-              + '<td><input id=character-random type=button value="Create Random Character">'
-            + '<tr>'
-              + '<td><input id=character-json type=file>'
-              + '<td><input id=character-load type=button value="Load Character from File">'
-            + '<tr>'
-              + '<td><input id=level-json type=file>'
-              + '<td><input id=level-load type=button value="Load Level from File"></table>',
+          'content': '<input id=character-random type=button value="Create Random Character"><br>'
+            + '<input id=character-json type=file><input id=character-load type=button value="Load Character from File"><hr>'
+            + '<input id=level-file type=file><input id=level-load-file type=button value="Load Level from File"><br>'
+            + '<input id=level-load-textarea type=button value="Load Level from Textarea"><br><textarea id=level-textarea></textarea>',
           'default': true,
           'group': 'core-menu',
           'label': 'Load Characters/Levels',
