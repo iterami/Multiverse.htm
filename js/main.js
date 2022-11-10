@@ -47,12 +47,16 @@ function repo_init(){
         },
         'character-load': {
           'onclick': function(){
+              const files = document.getElementById('character-json').files;
+              if(files.length === 0){
+                  return;
+              }
               if(webgl_character_level() < 0
                 || globalThis.confirm('Load new character?')){
                   webgl_level_unload();
                   webgl_level_load({
                     'character': 1,
-                    'json': document.getElementById('character-json').files[0] || false,
+                    'json': files[0] || false,
                   });
               }
           },
@@ -67,8 +71,12 @@ function repo_init(){
         },
         'level-load-file': {
           'onclick': function(){
+              const files = document.getElementById('level-file').files;
+              if(files.length === 0){
+                  return;
+              }
               core_file({
-                'file': document.getElementById('level-file').files[0],
+                'file': files[0],
                 'todo': function(event){
                     webgl_level_load({
                       'character': 0,
