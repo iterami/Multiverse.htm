@@ -47,17 +47,19 @@ function repo_init(){
         },
         'character-load': {
           'onclick': function(){
-              const files = document.getElementById('character-json').files;
-              if(files.length === 0){
+              const element = document.getElementById('character-json');
+              if(element.files.length === 0){
                   return;
               }
               if(webgl_character_level() < 0
                 || globalThis.confirm('Load new character?')){
                   webgl_level_unload();
-                  webgl_level_load({
-                    'character': 1,
-                    'json': files[0] || false,
-                  });
+                  if(!webgl_level_load({
+                      'character': 1,
+                      'json': element.files[0] || false,
+                    })){
+                      element.value = null;
+                  }
               }
           },
         },
@@ -71,18 +73,22 @@ function repo_init(){
         },
         'level-load-file': {
           'onclick': function(){
-              const files = document.getElementById('level-file').files;
-              if(files.length === 0){
+              const element = document.getElementById('level-file');
+              if(element.files.length === 0){
                   return;
               }
               core_file({
-                'file': files[0],
+                'file': element.files[0],
                 'todo': function(event){
-                    webgl_level_load({
-                      'character': 0,
-                      'json': JSON.parse(event.target.result),
-                    });
-                    document.title = webgl_properties['title'] || core_repo_title;
+                    if(webgl_level_load({
+                        'character': 0,
+                        'json': JSON.parse(event.target.result),
+                      })){
+                        document.title = webgl_properties['title'] || core_repo_title;
+
+                    }else{
+                        element.value = null;
+                    }
                 },
                 'type': 'readAsText',
               });
