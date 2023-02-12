@@ -112,8 +112,8 @@ function repo_init(){
       },
       'info': '<table><tr><td>Level<td><span id=level></span> (<span id=experience></span>)'
         + '<tr><td>Health<td><span class=health-current></span>/<span class=health-max></span>'
-        + '<tr><td>Jump Height<td><span id=jump-height></span> (x<span id=multiplier-jump></span>)'
-        + '<tr><td>Speed<td><span id=speed></span> (x<span id=multiplier-speed></span>)'
+        + '<tr><td>Jump Height<td><span id=jump-height></span>'
+        + '<tr><td>Speed<td><span id=speed></span>'
         + '</table><input id=home value="Return Home" type=button>',
       'keybinds': {
         70: {},
