@@ -104,11 +104,6 @@ function repo_init(){
               document.title = level_json['title'] || core_repo_title;
           },
         },
-        'update-json': {
-          'onclick': function(){
-              document.getElementById('exported').value = webgl_json_export();
-          },
-        },
       },
       'info': '<table><tr><td>Level<td><span id=level></span> (<span id=experience></span>)'
         + '<tr><td>Health<td><span class=health-current></span>/<span class=health-max></span>'
@@ -157,11 +152,6 @@ function repo_init(){
       'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning'
         + '<tr><td><input class=mini id=shoot min=0 step=any type=number><td>Shoot</table>',
       'tabs': {
-        'export': {
-          'content': '<input id=update-json type=button value="Update Character JSON"><br><textarea id=exported></textarea>',
-          'group': 'core-menu',
-          'label': 'Export Character',
-        },
         'load': {
           'content': '<input id=character-random type=button value="Create Random Character"><br>'
             + '<input id=character-json type=file><input id=character-load type=button value="Load Character from File"><hr>'
