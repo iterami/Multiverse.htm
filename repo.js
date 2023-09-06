@@ -76,14 +76,6 @@ function repo_init(){
               }
           },
         },
-        'home': {
-          'onclick': function(){
-              if(webgl_character_level() > -1){
-                  webgl_character_home();
-                  core_escape();
-              }
-          },
-        },
         'level-load-file': {
           'onclick': function(){
               const element = document.getElementById('level-file');
@@ -126,7 +118,7 @@ function repo_init(){
         + '<tr><td>Health<td><span class=health-current></span>/<span class=health-max></span>'
         + '<tr><td>Jump Height<td><span id=jump-height></span>'
         + '<tr><td>Speed<td><span id=speed></span>'
-        + '</table><input id=home value="Return Home" type=button>',
+        + '</table>',
       'keybinds': {
         70: {},
         192: {
