@@ -1,36 +1,21 @@
 'use strict';
 
-function charactersheet_update(){
+function repo_escape(){
+    if(!core_menu_open
+      || webgl_character_level() < 0){
+        return;
+    }
+
     core_ui_update({
       'class': true,
       'ids': {
         'experience': webgl_characters[webgl_character_id]['experience'],
-        'health-max': webgl_characters[webgl_character_id]['health-max'],
         'jump-height': webgl_characters[webgl_character_id]['jump-height'],
         'level': webgl_characters[webgl_character_id]['level'],
         'speed': webgl_characters[webgl_character_id]['speed'],
       },
     });
-}
-
-function repo_escape(){
-    if(webgl_character_level() < 0){
-        return;
-    }
-
-    if(core_menu_open){
-        charactersheet_update();
-        webgl_uniform_update();
-
-    }else{
-        core_ui_update({
-          'class': true,
-          'ids': {
-            'health-current': webgl_characters[webgl_character_id]['health-current'],
-            'health-max': webgl_characters[webgl_character_id]['health-max'],
-          },
-        });
-    }
+    webgl_uniform_update();
 }
 
 function repo_init(){
@@ -187,8 +172,10 @@ function repo_init(){
 
 function repo_logic(){
     core_ui_update({
+      'class': true,
       'ids': {
         'health-current': webgl_characters[webgl_character_id]['health-current'],
+        'health-max': webgl_characters[webgl_character_id]['health-max'],
       },
     });
 }
