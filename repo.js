@@ -126,9 +126,6 @@ function repo_init(){
         },
         'mouseup': {
           'todo': function(){
-              if(webgl_character_level() < -1){
-                  return;
-              }
               webgl_pick_entity({
                 'x': core_mouse['down-x'],
                 'y': core_mouse['down-y'],
