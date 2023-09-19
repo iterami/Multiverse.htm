@@ -125,12 +125,7 @@ function repo_init(){
           'todo': webgl_camera_handle,
         },
         'mouseup': {
-          'todo': function(){
-              webgl_pick_entity({
-                'x': core_mouse['down-x'],
-                'y': core_mouse['down-y'],
-              });
-          },
+          'todo': webgl_pick_entity,
         },
         'mousewheel': {
           'todo': webgl_camera_zoom,
