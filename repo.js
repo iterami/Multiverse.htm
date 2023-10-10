@@ -98,12 +98,15 @@ function repo_init(){
                 : core_repo_title;
           },
         },
+        'screenshot': {
+          'onclick': webgl_screenshot,
+        },
       },
       'info': '<table><tr><td>Level<td><span id=level></span> (<span id=experience></span>)'
         + '<tr><td>Health<td><span class=health-current></span>/<span class=health-max></span>'
         + '<tr><td>Jump Height<td><span id=jump-height></span>'
         + '<tr><td>Speed<td><span id=speed></span>'
-        + '</table>',
+        + '</table><input id=screenshot type=button value=Screenshot>',
       'keybinds': {
         70: {},
         192: {
