@@ -39,7 +39,7 @@ function repo_init(){
                     'character': 2,
                   });
                   webgl_character_random({
-                    'id': '_me',
+                    'id': webgl_character_id,
                   });
               }
           },
