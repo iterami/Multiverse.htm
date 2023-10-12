@@ -22,7 +22,7 @@ function repo_init(){
     core_repo_init({
       'beforeunload': {
         'todo': function(){
-            if(webgl_character_level() > -2
+            if(!core_menu_lock
               && core_storage_data['beforeunload-warning']){
                 return 'Exit?';
             }
@@ -31,8 +31,9 @@ function repo_init(){
       'events': {
         'character-random': {
           'onclick': function(){
-              if(webgl_character_level() < 0
+              if(core_menu_lock
                 || globalThis.confirm('Load new character?')){
+                  core_menu_lock = false;
                   webgl_level_unload();
                   webgl_level_load({
                     'character': 2,
@@ -49,8 +50,9 @@ function repo_init(){
               if(element.files.length === 0){
                   return;
               }
-              if(webgl_character_level() < 0
+              if(core_menu_lock
                 || globalThis.confirm('Load new character?')){
+                  core_menu_lock = false;
                   webgl_level_unload();
                   if(!webgl_level_load({
                       'character': 1,
@@ -116,6 +118,7 @@ function repo_init(){
         },
       },
       'menu': true,
+      'menu-lock': true,
       'mousebinds': {
         'contextmenu': {
           'preventDefault': true,
