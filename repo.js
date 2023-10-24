@@ -110,8 +110,7 @@ function repo_init(){
         + '<tr><td>Speed<td><span id=speed></span>'
         + '</table><input id=screenshot type=button value=Screenshot>',
       'keybinds': {
-        70: {},
-        192: {
+        'Backquote': {
           'todo': function(){
               webgl_characters[webgl_character_id]['automove'] = !webgl_characters[webgl_character_id]['automove'];
           },
@@ -135,10 +134,8 @@ function repo_init(){
       },
       'storage': {
         'beforeunload-warning': true,
-        'shoot': 70,
       },
-      'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning'
-        + '<tr><td><input class=mini id=shoot min=0 step=any type=number><td>Shoot</table>',
+      'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning</table>',
       'tabs': {
         'load': {
           'content': '<input id=character-random type=button value="Create Random Character"><br>'
