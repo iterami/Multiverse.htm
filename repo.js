@@ -150,14 +150,6 @@ function repo_init(){
       'title': 'Multiverse.htm',
       'ui': 'Health: <span id=health-current></span>/<span id=health-max></span>',
     });
-
-    if('multiversecharacters' in globalThis){
-        let character_select = '';
-        for(const character in multiversecharacters){
-            character_select += '<option value="' + character + '">' + multiversecharacters[character] + '</option>';
-        }
-        document.getElementById('character-select').innerHTML = character_select;
-    }
 }
 
 function repo_logic(){
