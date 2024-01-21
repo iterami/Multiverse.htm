@@ -108,7 +108,7 @@ function repo_init(){
         + '<tr><td>Health<td><span class=health-current></span>/<span class=health-max></span>'
         + '<tr><td>Jump Height<td><span id=jump-height></span>'
         + '<tr><td>Speed<td><span id=speed></span>'
-        + '</table><input id=screenshot type=button value=Screenshot>',
+        + '</table><button id=screenshot type=button>Screenshot</button>',
       'keybinds': {
         'Backquote': {
           'todo': function(){
@@ -138,10 +138,10 @@ function repo_init(){
       'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning</table>',
       'tabs': {
         'load': {
-          'content': '<input id=character-random type=button value="Create Random Character"><br>'
-            + '<input id=character-json type=file><input id=character-load type=button value="Load Character from File"><hr>'
-            + '<input id=level-file type=file><input id=level-load-file type=button value="Load Level from File"><br>'
-            + '<input id=level-load-textarea type=button value="Load Level from Textarea"><br><textarea id=level-textarea>{}</textarea>',
+          'content': '<button id=character-random type=button>Create Random Character</button><br>'
+            + '<input id=character-json type=file><button id=character-load type=button>Load Character from File</button><hr>'
+            + '<input id=level-file type=file><button id=level-load-file type=button>Load Level from File</button><br>'
+            + '<button id=level-load-textarea type=button>Load Level from Textarea</button><br><textarea id=level-textarea>{}</textarea>',
           'default': true,
           'group': 'core-menu',
           'label': 'Load Characters/Levels',
