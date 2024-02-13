@@ -105,7 +105,7 @@ function repo_init(){
         },
       },
       'info': '<table><tr><td>Level<td><span id=level></span> (<span id=experience></span>)'
-        + '<tr><td>Health<td><span class=health-current></span>/<span class=health-max></span>'
+        + '<tr><td>Health<td><span class=health></span>/<span class=health-max></span>'
         + '<tr><td>Jump Height<td><span id=jump-height></span>'
         + '<tr><td>Speed<td><span id=speed></span>'
         + '</table><button id=screenshot type=button>Screenshot</button>',
@@ -147,7 +147,7 @@ function repo_init(){
         },
       },
       'title': 'Multiverse.htm',
-      'ui': 'Health: <span id=health-current></span>/<span id=health-max></span>',
+      'ui': 'Health: <span id=health></span>/<span id=health-max></span>',
     });
 }
 
@@ -155,7 +155,7 @@ function repo_logic(){
     core_ui_update({
       'class': true,
       'ids': {
-        'health-current': webgl_characters[webgl_character_id]['health-current'],
+        'health': webgl_characters[webgl_character_id]['health'],
         'health-max': webgl_characters[webgl_character_id]['health-max'],
       },
     });
