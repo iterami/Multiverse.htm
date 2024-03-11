@@ -122,13 +122,20 @@ function repo_init(){
           'preventDefault': true,
         },
         'mousemove': {
-          'todo': webgl_camera_handle,
+          'todo': function(event){
+              webgl_controls_mouse(webgl_character_id);
+          },
         },
         'mouseup': {
           'todo': webgl_pick_entity,
         },
         'mousewheel': {
-          'todo': webgl_camera_zoom,
+          'todo': function(event){
+              webgl_controls_mousewheel(
+                webgl_character_id,
+                event.deltaY
+              );
+          },
         },
       },
       'storage': {
