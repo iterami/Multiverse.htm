@@ -9,7 +9,7 @@ function repo_escape(){
     core_ui_update({
       'class': true,
       'ids': {
-        'experience': webgl_characters[webgl_character_id]['experience'],
+        'level-xp': webgl_characters[webgl_character_id]['level-xp'],
         'jump-height': webgl_characters[webgl_character_id]['jump-height'],
         'level': webgl_characters[webgl_character_id]['level'],
         'speed': webgl_characters[webgl_character_id]['speed'],
@@ -104,7 +104,7 @@ function repo_init(){
           'onclick': webgl_screenshot,
         },
       },
-      'info': '<table><tr><td>Level<td><span id=level></span> (<span id=experience></span>)'
+      'info': '<table><tr><td>Level<td><span id=level></span> (<span id=level-xp></span>)'
         + '<tr><td>Health<td><span class=health></span>/<span class=health-max></span>'
         + '<tr><td>Jump Height<td><span id=jump-height></span>'
         + '<tr><td>Speed<td><span id=speed></span>'
