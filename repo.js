@@ -9,10 +9,29 @@ function repo_escape(){
     core_ui_update({
       'class': true,
       'ids': {
-        'level-xp': webgl_characters[webgl_character_id]['level-xp'],
-        'jump-height': webgl_characters[webgl_character_id]['jump-height'],
-        'level': webgl_characters[webgl_character_id]['level'],
-        'speed': webgl_characters[webgl_character_id]['speed'],
+        'jump-height': core_number_format({
+            'decimals-max': 3,
+            'number': webgl_characters[webgl_character_id]['jump-height'],
+          }),
+        'level': core_number_format({
+            'decimals-max': 0,
+            'number': webgl_characters[webgl_character_id]['level'],
+          }),
+        'level-goal': core_number_format({
+            'decimals-max': 0,
+            'number': Math.max(
+              webgl_characters[webgl_character_id]['level'] * 1e3,
+              1000
+            ),
+          }),
+        'level-xp': core_number_format({
+            'decimals-max': 3,
+            'number': webgl_characters[webgl_character_id]['level-xp'],
+          }),
+        'speed': core_number_format({
+            'decimals-max': 3,
+            'number': webgl_characters[webgl_character_id]['speed'],
+          }),
       },
     });
     webgl_uniform_update();
@@ -104,7 +123,7 @@ function repo_init(){
           'onclick': webgl_screenshot,
         },
       },
-      'info': '<table><tr><td>Level<td><span id=level></span> (<span id=level-xp></span>)'
+      'info': '<table><tr><td>Level<td><span id=level></span> (<span id=level-xp></span>/<span id=level-goal></span>)'
         + '<tr><td>Health<td><span class=health></span>/<span class=health-max></span>'
         + '<tr><td>Jump Height<td><span id=jump-height></span>'
         + '<tr><td>Speed<td><span id=speed></span>'
