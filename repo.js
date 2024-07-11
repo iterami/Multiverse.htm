@@ -6,31 +6,30 @@ function repo_escape(){
         return;
     }
 
+    const ui = {
+      'jump-height': 3,
+      'level': 0,
+      'level-xp': 3,
+      'lives': 0,
+      'speed': 3,
+      'turn-speed': 3,
+    };
+    for(const element in ui){
+        ui[element] = core_number_format({
+          'decimals-max': ui[element],
+          'number': webgl_characters[webgl_character_id][element],
+        });
+    }
     core_ui_update({
       'class': true,
       'ids': {
-        'jump-height': core_number_format({
-            'decimals-max': 3,
-            'number': webgl_characters[webgl_character_id]['jump-height'],
-          }),
-        'level': core_number_format({
-            'decimals-max': 0,
-            'number': webgl_characters[webgl_character_id]['level'],
-          }),
+        ...ui,
         'level-goal': core_number_format({
             'decimals-max': 0,
             'number': Math.max(
               webgl_characters[webgl_character_id]['level'] * 1e3,
               1000
             ),
-          }),
-        'level-xp': core_number_format({
-            'decimals-max': 3,
-            'number': webgl_characters[webgl_character_id]['level-xp'],
-          }),
-        'speed': core_number_format({
-            'decimals-max': 3,
-            'number': webgl_characters[webgl_character_id]['speed'],
           }),
       },
     });
@@ -125,8 +124,10 @@ function repo_init(){
       },
       'info': '<table><tr><td>Level<td><span id=level></span> (<span id=level-xp></span>/<span id=level-goal></span>)'
         + '<tr><td>Health<td><span class=health></span>/<span class=health-max></span>'
+        + '<tr><td>Lives<td><span id=lives></span>'
         + '<tr><td>Jump Height<td><span id=jump-height></span>'
         + '<tr><td>Speed<td><span id=speed></span>'
+        + '<tr><td>Turn Speed<td><span id=turn-speed></span>'
         + '</table><button id=screenshot type=button>Screenshot</button>',
       'keybinds': {
         'Backquote': {
