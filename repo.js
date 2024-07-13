@@ -26,10 +26,7 @@ function repo_escape(){
         ...ui,
         'level-goal': core_number_format({
             'decimals-max': 0,
-            'number': Math.max(
-              webgl_characters[webgl_character_id]['level'] * 1e3,
-              1000
-            ),
+            'number': Math.floor(webgl_characters[webgl_character_id]['level'] + 1) * 1e3,
           }),
       },
     });
