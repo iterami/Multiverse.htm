@@ -54,7 +54,9 @@ function repo_init(){
                     'character': 2,
                   });
                   webgl_character_init({
+                    'collides': true,
                     'controls': 'rpg',
+                    'gravity': 1,
                     'level': 0,
                     'lives': 1,
                     'randomize': true,
