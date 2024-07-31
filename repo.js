@@ -53,8 +53,11 @@ function repo_init(){
                   webgl_level_load({
                     'character': 2,
                   });
-                  webgl_character_random({
-                    'id': webgl_character_id,
+                  webgl_character_init({
+                    'controls': 'rpg',
+                    'level': 0,
+                    'lives': 1,
+                    'randomize': true,
                   });
               }
           },
