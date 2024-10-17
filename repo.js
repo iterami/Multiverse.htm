@@ -151,9 +151,9 @@ function repo_init(){
         'mouseup': {
           'todo': webgl_pick_entity,
         },
-        'mousewheel': {
+        'wheel': {
           'todo': function(event){
-              webgl_controls_mousewheel(
+              webgl_controls_wheel(
                 webgl_character_id,
                 event.deltaY
               );
