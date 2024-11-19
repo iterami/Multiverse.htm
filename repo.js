@@ -96,9 +96,7 @@ function repo_init(){
                         'character': 0,
                         'json': JSON.parse(event.target.result),
                       })){
-                        document.title = webgl_properties['title']
-                          ? webgl_properties['title'] + ' - ' + core_repo_title
-                          : core_repo_title;
+                        document.title = (webgl_properties['title'] || element.files[0].name) +  ' - ' + core_repo_title;
 
                     }else{
                         element.value = null;
