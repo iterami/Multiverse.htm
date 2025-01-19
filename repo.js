@@ -51,16 +51,15 @@ function repo_init(){
                   core_menu_lock = false;
                   webgl_level_unload();
                   webgl_level_load({
-                    'character': 2,
-                  });
-                  webgl_character_init({
-                    'camera-zoom': 25,
-                    'collides': true,
-                    'controls': 'rpg',
-                    'gravity': 1,
-                    'level': 0,
-                    'lives': 1,
-                    'randomize': true,
+                    'character': {
+                      'camera-zoom': 25,
+                      'collides': true,
+                      'controls': 'rpg',
+                      'gravity': 1,
+                      'level': 0,
+                      'lives': 1,
+                      'randomize': true,
+                    },
                   });
               }
           },
