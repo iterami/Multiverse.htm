@@ -54,6 +54,7 @@ function repo_init(){
                     'character': 2,
                   });
                   webgl_character_init({
+                    'camera-zoom': 25,
                     'collides': true,
                     'controls': 'rpg',
                     'gravity': 1,
@@ -85,6 +86,9 @@ function repo_init(){
         },
         'level-load-file': {
           'onclick': function(){
+              if(!webgl_characters[webgl_character_id]){
+                  return;
+              }
               const element = document.getElementById('level-file');
               if(element.files.length === 0){
                   return;
@@ -108,6 +112,9 @@ function repo_init(){
         },
         'level-load-textarea': {
           'onclick': function(){
+              if(!webgl_characters[webgl_character_id]){
+                  return;
+              }
               const level_json = JSON.parse(document.getElementById('level-textarea').value);
               webgl_level_load({
                 'character': 0,
