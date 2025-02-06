@@ -148,7 +148,7 @@ function repo_init(){
           'preventDefault': true,
         },
         'mousemove': {
-          'todo': function(event){
+          'todo': function(){
               webgl_controls_mouse(webgl_character_id);
           },
         },
