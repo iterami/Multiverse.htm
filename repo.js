@@ -1,38 +1,5 @@
 'use strict';
 
-function repo_escape(){
-    if(!core_menu_open
-      || webgl_character_level() < 0){
-        return;
-    }
-
-    const ui = {
-      'jump-height': 3,
-      'level': 0,
-      'level-xp': 3,
-      'lives': 0,
-      'speed': 3,
-      'turn-speed': 3,
-    };
-    for(const element in ui){
-        ui[element] = core_number_format({
-          'decimals-max': ui[element],
-          'number': webgl_characters[webgl_character_id][element],
-        });
-    }
-    core_ui_update({
-      'class': true,
-      'ids': {
-        ...ui,
-        'level-goal': core_number_format({
-            'decimals-max': 0,
-            'number': Math.floor(webgl_characters[webgl_character_id]['level'] + 1) * 1e3,
-          }),
-      },
-    });
-    webgl_uniform_update();
-}
-
 function repo_init(){
     core_repo_init({
       'beforeunload': {
@@ -184,12 +151,40 @@ function repo_init(){
     });
 }
 
-function repo_logic(){
+function repo_level_load(){
+    update_ui();
+}
+
+function repo_stat_modify(){
+    update_ui();
+}
+
+function update_ui(){
+    const ui = {
+      'jump-height': 3,
+      'level': 0,
+      'level-xp': 3,
+      'life': 0,
+      'life-max': 0,
+      'lives': 0,
+      'speed': 3,
+      'turn-speed': 3,
+    };
+    for(const element in ui){
+        ui[element] = core_number_format({
+          'decimals-max': ui[element],
+          'number': webgl_characters[webgl_character_id][element],
+        });
+    }
     core_ui_update({
       'class': true,
       'ids': {
-        'life': webgl_characters[webgl_character_id]['life'],
-        'life-max': webgl_characters[webgl_character_id]['life-max'],
+        ...ui,
+        'level-goal': core_number_format({
+            'decimals-max': 0,
+            'number': Math.floor(webgl_characters[webgl_character_id]['level'] + 1) * 1e3,
+          }),
       },
     });
+    webgl_uniform_update();
 }
