@@ -4,10 +4,7 @@ function repo_init(){
     core_repo_init({
       'beforeunload': {
         'todo': function(){
-            if(!core_menu_lock
-              && core_storage_data['beforeunload-warning']){
-                return 'Exit?';
-            }
+            return 'Exit?';
         },
       },
       'events': {
@@ -131,10 +128,6 @@ function repo_init(){
           },
         },
       },
-      'storage': {
-        'beforeunload-warning': true,
-      },
-      'storage-menu': '<table><tr><td><input id=beforeunload-warning type=checkbox><td>beforeunload Warning</table>',
       'tabs': {
         'load': {
           'content': '<button id=character-random type=button>Create Random Character</button><br>'
