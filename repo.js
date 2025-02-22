@@ -13,7 +13,6 @@ function repo_init(){
               if(core_menu_lock
                 || globalThis.confirm('Load new character?')){
                   core_menu_lock = false;
-                  webgl_level_unload();
                   webgl_level_load({
                     'character': {
                       'camera-zoom': 25,
@@ -37,7 +36,6 @@ function repo_init(){
               if(core_menu_lock
                 || globalThis.confirm('Load new character?')){
                   core_menu_lock = false;
-                  webgl_level_unload();
                   if(!webgl_level_load({
                       'character': 1,
                       'json': element.files[0] || false,
