@@ -3,8 +3,10 @@
 function repo_init(){
     core_repo_init({
       'beforeunload': {
-        'todo': function(){
-            return 'Exit?';
+        'todo': function(event){
+            if(webgl !== 0){
+                event.preventDefault();
+            }
         },
       },
       'events': {
