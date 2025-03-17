@@ -78,7 +78,10 @@ function repo_init(){
               if(!webgl_characters[webgl_character_id]){
                   return;
               }
-              const level_json = JSON.parse(document.getElementById('level-textarea').value);
+              const text = document.getElementById('level-textarea').value.trim();
+              const level_json = JSON.parse(text[0] === "'"
+                ? text.slice(1, -1)
+                : text);
               webgl_level_load({
                 'character': 0,
                 'json': level_json,
