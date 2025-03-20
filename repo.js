@@ -78,7 +78,7 @@ function repo_init(){
               if(!webgl_characters[webgl_character_id]){
                   return;
               }
-              const text = document.getElementById('level-textarea').value.trim();
+              const text = document.getElementById('level-textarea').value.trim() || '{}';
               const level_json = JSON.parse(text[0] === "'"
                 ? text.slice(1, -1)
                 : text);
@@ -131,7 +131,7 @@ function repo_init(){
           'content': '<button id=character-random type=button>Create Random Character</button><br>'
             + '<input id=character-json type=file><button id=character-load type=button>Load Character from File</button><hr>'
             + '<input id=level-file type=file><button id=level-load-file type=button>Load Level from File</button><br>'
-            + '<button id=level-load-textarea type=button>Load Level from Textarea</button><br><textarea id=level-textarea>{}</textarea>',
+            + '<button id=level-load-textarea type=button>Load Level from Textarea</button><br><textarea id=level-textarea></textarea>',
           'default': true,
           'group': 'core-menu',
           'label': 'Load Characters/Levels',
