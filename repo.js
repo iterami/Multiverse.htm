@@ -23,7 +23,7 @@ function repo_init(){
                       'gravity': 1,
                       'level': 0,
                       'lives': 1,
-                      'randomize': true,
+                      'model': {},
                     },
                   });
               }
