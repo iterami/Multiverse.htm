@@ -110,16 +110,16 @@ function repo_init(){
         },
       },
       'menu-lock': true,
-      'mousebinds': {
+      'pointerbinds': {
         'contextmenu': {
           'preventDefault': true,
         },
-        'mousemove': {
+        'pointermove': {
           'todo': function(){
-              webgl_controls_mouse();
+              webgl_controls_pointer();
           },
         },
-        'mouseup': {
+        'pointerup': {
           'todo': webgl_pick_entity,
         },
         'wheel': {
