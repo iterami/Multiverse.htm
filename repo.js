@@ -134,7 +134,7 @@ function repo_init(){
             + '<input id=level-file type=file><button id=level-load-file type=button>Load Level from File</button><br>'
             + '<button id=level-load-textarea type=button>Load Level from Textarea</button><br><textarea id=level-textarea></textarea>',
           'default': true,
-          'group': 'core-menu',
+          'group': 'core_menu',
           'label': 'Load Characters/Levels',
         },
       },
