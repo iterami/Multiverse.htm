@@ -126,7 +126,7 @@ function repo_init(){
           'todo': webgl_controls_wheel,
         },
       },
-      'storage-controls': true,
+      'storage_controls': true,
       'tabs': {
         'load': {
           'content': '<button id=character-random type=button>Create Random Character</button><br>'
