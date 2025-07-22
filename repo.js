@@ -165,7 +165,6 @@ function update_ui(){
     for(const element in ui){
         ui[element] = core_number_format({
           'decimals_max': ui[element],
-          'decimals_min': 0,
           'number': webgl_characters[webgl_character_id][element],
         });
     }
@@ -175,7 +174,6 @@ function update_ui(){
         ...ui,
         'level_goal': core_number_format({
             'decimals_max': 0,
-            'decimals_min': 0,
             'number': Math.floor(webgl_characters[webgl_character_id].level + 1) * 1e3,
           }),
       },
