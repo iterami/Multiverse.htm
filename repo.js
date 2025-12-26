@@ -16,6 +16,7 @@ function repo_init(){
               if(core_menu_lock
                 || globalThis.confirm('Load new character?')){
                   core_menu_lock = false;
+                  document.title = core_repo_title;
                   webgl_level_load({
                     'character': {
                       'camera_zoom': 25,
@@ -44,6 +45,7 @@ function repo_init(){
                       'json': element.files[0] || false,
                     })){
                       element.value = null;
+                      document.title = core_repo_title;
                   }
               }
           },
@@ -64,7 +66,7 @@ function repo_init(){
                         'character': 0,
                         'json': JSON.parse(event.target.result),
                       })){
-                        document.title = (webgl_properties.title || element.files[0].name) +  ' - ' + core_repo_title;
+                        document.title = webgl_properties.title || element.files[0].name;
 
                     }else{
                         element.value = null;
@@ -87,9 +89,7 @@ function repo_init(){
                 'character': 0,
                 'json': level_json,
               });
-              document.title = level_json.title
-                ? level_json.title + ' - ' + core_repo_title
-                : core_repo_title;
+              document.title = level_json.title || core_repo_title;
           },
         },
         'screenshot': {
