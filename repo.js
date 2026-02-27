@@ -168,7 +168,7 @@ function update_ui(){
         });
     }
     core_ui_update({
-      'class': true,
+      'classname': true,
       'ids': {
         ...ui,
         'level_goal': core_number_format({
