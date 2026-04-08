@@ -106,7 +106,7 @@ function repo_init(){
       'keybinds': {
         'Backquote': {
           'down': function(){
-              webgl_characters[webgl_character_id].automove = !webgl_characters[webgl_character_id].automove;
+              webgl_character_automove();
           },
         },
       },
