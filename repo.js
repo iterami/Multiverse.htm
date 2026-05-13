@@ -123,7 +123,7 @@ function repo_init(){
           },
         },
         'pointerup': {
-          'todo': webgl_pick_entity,
+          'todo': webgl_pick,
         },
         'wheel': {
           'todo': webgl_controls_wheel,
