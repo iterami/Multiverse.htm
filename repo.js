@@ -96,17 +96,13 @@ function repo_init(){
               document.title = level_json.title || core_repo_title;
           },
         },
-        'screenshot': {
-          'onclick': webgl_screenshot,
-        },
       },
       'info': '<table><tr><td>Level<td><span id=level></span> (<span id=level_xp></span>/<span id=level_goal></span>)'
         + '<tr><td>Life<td><span class=life></span>/<span class=life_max></span>'
         + '<tr><td>Lives<td><span id=lives></span>'
         + '<tr><td>Jump Height<td><span id=jump_height></span>'
         + '<tr><td>Speed<td><span id=speed></span>'
-        + '<tr><td>Turn Speed<td><span id=turn_speed></span>'
-        + '</table><button id=screenshot type=button>Screenshot</button>',
+        + '<tr><td>Turn Speed<td><span id=turn_speed></span></table>',
       'keybinds': {
         'Backquote': {
           'down': webgl_character_automove,
