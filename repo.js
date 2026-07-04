@@ -136,7 +136,7 @@ function repo_init(){
         },
       },
       'title': 'Multiverse.htm',
-      'ui': 'Life: <span id=life></span>/<span id=life_max></span>',
+      'ui': ' Life: <span id=life>-</span>/<span id=life_max>-</span>',
     });
 }
 
