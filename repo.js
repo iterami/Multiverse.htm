@@ -6,13 +6,11 @@ function repo_escape(){
 
 function repo_init(){
     core_repo_init({
-      'beforeunload': {
-        'todo': function(event){
-            if(webgl !== 0){
-                core_escape(true);
-                event.preventDefault();
-            }
-        },
+      'beforeunload': function(event){
+          if(webgl !== 0){
+              core_escape(true);
+              event.preventDefault();
+          }
       },
       'events': {
         'character_random': {
@@ -110,18 +108,12 @@ function repo_init(){
       },
       'menu_lock': true,
       'pointerbinds': {
-        'contextmenu': {},
-        'pointermove': {
-          'todo': function(){
-              webgl_controls_pointer();
-          },
+        'contextmenu': function(){},
+        'pointermove': function(){
+            webgl_controls_pointer();
         },
-        'pointerup': {
-          'todo': webgl_pick,
-        },
-        'wheel': {
-          'todo': webgl_controls_wheel,
-        },
+        'pointerup': webgl_pick,
+        'wheel': webgl_controls_wheel,
       },
       'storage_controls': true,
       'tabs': {
