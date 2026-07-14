@@ -119,8 +119,8 @@ function repo_init(){
       'tabs': {
         'load': {
           'content': '<button id=character_random type=button>Create Random Character</button><br>'
-            + '<input id=character_json type=file><button id=character_load type=button>Load Character from File</button><br>'
-            + '<input id=level_file type=file><button id=level_load_file type=button>Load Level from File</button><br>'
+            + '<input accept=".json,application/json" id=character_json type=file><button id=character_load type=button>Load Character from File</button><br>'
+            + '<input accept=".json,application/json" id=level_file type=file><button id=level_load_file type=button>Load Level from File</button><br>'
             + '<button id=level_load_textarea type=button>Load Level from Textarea</button><br><textarea id=level_textarea></textarea>',
           'default': true,
           'group': 'core_menu',
