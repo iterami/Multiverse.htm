@@ -54,7 +54,7 @@ function repo_init(){
         },
         'level_load_file': {
           'onclick': function(){
-              if(!webgl_characters[webgl_character_id]){
+              if(!webgl_characters[webgl_player_id]){
                   return;
               }
               const element = document.getElementById('level_file');
@@ -80,7 +80,7 @@ function repo_init(){
         },
         'level_load_textarea': {
           'onclick': function(){
-              if(!webgl_characters[webgl_character_id]){
+              if(!webgl_characters[webgl_player_id]){
                   return;
               }
               const text = document.getElementById('level_textarea').value.trim() || '{}';
@@ -154,7 +154,7 @@ function update_ui(){
     for(const element in ui){
         ui[element] = core_number_format({
           'decimals_max': ui[element],
-          'number': webgl_characters[webgl_character_id][element],
+          'number': webgl_characters[webgl_player_id][element],
         });
     }
     core_ui_update({
@@ -163,7 +163,7 @@ function update_ui(){
         ...ui,
         'level_goal': core_number_format({
             'decimals_max': 0,
-            'number': Math.floor(webgl_characters[webgl_character_id].level + 1) * 1e3,
+            'number': Math.floor(webgl_characters[webgl_player_id].level + 1) * 1e3,
           }),
       },
     });
