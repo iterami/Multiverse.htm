@@ -22,6 +22,8 @@ function repo_init(){
                   webgl_level_load({
                     'character': {
                       'camera_zoom': 25,
+                      'collide_bottom': 5,
+                      'collide_top': 1,
                       'collides': true,
                       'controls': 'rpg',
                       'gravity': 1,
